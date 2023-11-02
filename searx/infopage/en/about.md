@@ -18,8 +18,11 @@
 
 # Ajouter KatKatGo comme navigateur par défaut
 
-## Sur Ordinateur
+### Méthode facile : télécharger l'extension KatKatGo
+- [Chrome/Brave/Edge](https://chrome.google.com/webstore/detail/katkatgo/dpnafclbanjolggfiedpidlfjmjdlpfd?hl=fr)
+- [Firefox/Librewolf/Tor](https://addons.mozilla.org/en-US/firefox/addon/katkatgo-private-search-engine/?utm_source=addons.mozilla.org&utm_medium=referral&)
 
+### Méthode compliquée
 ### Chrome/Brave
 1. Faire une recherche sur KatKatGo
 2. Clic droit sur la barre d'URL, gérer les moteurs
@@ -50,4 +53,9 @@ katkatgo.fr/search?q=%s
 Impossible (merci Opera -_-)
 
 <!-- <img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="40" height="40" /> -->
-[Télécharger Sylvestrie v1.0.5](http://urlshortener.at/cpSWX)
+
+## Liens divers
+[Télécharger mon jeu-vidéo](http://urlshortener.at/cpSWX)
+
+## Crédits
+Logo du site : ma.alx
