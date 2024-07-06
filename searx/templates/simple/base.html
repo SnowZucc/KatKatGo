@@ -17,9 +17,6 @@
   {% else %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/searxng.min.css') }}" type="text/css" media="screen" />
   {% endif %}
-  {% if get_setting('server.limiter') or get_setting('server.public_instance') %}
-  <link rel="stylesheet" href="{{ url_for('client_token', token=link_token) }}" type="text/css" />
-  {% endif %}
   {% block styles %}{% endblock %}
   <!--[if gte IE 9]>-->
   <script src="{{ url_for('static', filename='js/searxng.head.min.js') }}" client_settings="{{ client_settings }}"></script>
@@ -29,6 +26,38 @@
   {% endblock %}
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  
+  <style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropbtn {
+  background: transparent;
+  color: inherit;
+  border: none;
+  outline: none;
+}
+  </style>
 </head>
 <body class="{{ endpoint }}_endpoint" >
   <main id="main_{{  self._TemplateReference__context.name|replace("simple/", "")|replace(".html", "") }}" class="{{body_class}}">
@@ -46,14 +75,29 @@
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
       {%- block linkto_about -%}
-      <a href="https://chat.katkatgo.fr" class="link_on_top_louia">{{ _('GPT-4 mod') }}</a>
-<a href="https://discord.gg/P3VFT3hVPw" class="link_on_top_louia">{{ _('Discord') }}</a>
-{%- endblock -%}
-{%- block linkto_donate -%}
-{%- if donation_url -%}
-<a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
-{%- endif -%}
-{%- endblock -%}
+      <div class="dropdown">
+        <button class="dropbtn">Extension</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="https://chromewebstore.google.com/detail/katkatgo/dpnafclbanjolggfiedpidlfjmjdlpfd">Chrome/Edge/Brave</a>
+          <a href="https://addons.mozilla.org/fr/firefox/addon/katkatgo-private-search-engine">Firefox/LibreWolf</a>
+           </div>
+          </div>
+      <div class="dropdown">
+        <button class="dropbtn">Katchat</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="https://chat.katkatgo.fr">Chat</a>
+          <a href="https://api.katkatgo.fr">Compte</a>
+          <!-- <a href="https://chat.katkatgo.fr/plugins">Plugins</a> -->
+          <a href="https://variableroundedpress.crispypiez.repl.co/?q=web&sort_by=most_popular">Plugins</a>
+        </div>
+      </div>
+      <a href="https://discord.gg/P3VFT3hVPw" class="link_on_top_louia">{{ _('Discord') }}</a>
+      {%- endblock -%}
+      {%- block linkto_donate -%}
+      {%- if donation_url -%}
+      <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
+      {%- endif -%}
+      {%- endblock -%}
         <a href="{{ url_for('info', pagename='about') }}" class="link_on_top_about">{{ icon_big('information-circle-outline') }}<span>{{ _('About') }}</span></a>
     </nav>
     {% block header %}
@@ -80,3 +124,4 @@
   <!--<![endif]-->
 </body>
 </html>
+
