@@ -2,8 +2,8 @@
 <html class="no-js theme-{{ preferences.get_value('simple_style') or 'auto' }} center-aligment-{{ preferences.get_value('center_alignment') and 'yes' or 'no' }}" lang="{{ locale_rfc5646 }}" {% if rtl %} dir="rtl"{% endif %}>
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="SearXNG — a privacy-respecting, open metasearch engine">
-  <meta name="keywords" content="SearXNG, search, search engine, metasearch, meta search">
+  <meta name="description" content="KatKatGo - La confidentialité sans compromis !">
+  <meta name="keywords" content="KatKatGo - La confidentialité sans compromis !">
   <meta name="generator" content="searxng/{{ searx_version }}">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noarchive">
@@ -46,38 +46,34 @@
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
       {%- block linkto_about -%}
+      <a href="https://chat.katkatgo.fr" class="link_on_top_louia">{{ _('GPT-4 mod') }}</a>
+<a href="https://discord.gg/P3VFT3hVPw" class="link_on_top_louia">{{ _('Discord') }}</a>
+{%- endblock -%}
+{%- block linkto_donate -%}
+{%- if donation_url -%}
+<a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
+{%- endif -%}
+{%- endblock -%}
         <a href="{{ url_for('info', pagename='about') }}" class="link_on_top_about">{{ icon_big('information-circle-outline') }}<span>{{ _('About') }}</span></a>
-      {%- endblock -%}
-      {%- block linkto_donate -%}
-        {%- if donation_url -%}
-        <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
-        {%- endif -%}
-      {%- endblock -%}
-      {%- block linkto_preferences -%}
-        <a href="{{ url_for('preferences') }}" class="link_on_top_preferences">{{ icon_big('menu-outline') }}<span>{{ _('Preferences') }}</span></a>
-      {%- endblock -%}
     </nav>
     {% block header %}
     {% endblock %}
     {% block content %}
     {% endblock %}
   </main>
+
+  <style>
+    footer {
+      font-size: 13px; /* Change the font size as desired */
+    }
+  </style>
+
   <footer>
-    <p>
-    {{ _('Powered by') }} <a href="{{ url_for('info', pagename='about') }}">searxng</a> - {{ searx_version }} — {{ _('a privacy-respecting, open metasearch engine') }}<br/>
-        <a href="{{ searx_git_url }}">{{ _('Source code') }}</a>
-        | <a href="{{ get_setting('brand.issue_url') }}">{{ _('Issue tracker') }}</a>
+    
+    {{ _('KatKatGo permet de faire ses recherches sans être pisté.') }} <br/> Searx version {{ searx_version }}
         {% if enable_metrics %}| <a href="{{ url_for('stats') }}">{{ _('Engine stats') }}</a>{% endif %}
-        {% if get_setting('brand.public_instances') %}
-        | <a href="{{ get_setting('brand.public_instances') }}">{{ _('Public instances') }}</a>
-        {% endif %}
-        {% if get_setting('general.privacypolicy_url') %}
-        | <a href="{{ get_setting('general.privacypolicy_url') }}">{{ _('Privacy policy') }}</a>
-        {% endif %}
-        {% if get_setting('general.contact_url') %}
-        | <a href="{{ get_setting('general.contact_url') }}">{{ _('Contact instance maintainer') }}</a>
-        {% endif %}
-    </p>
+<br/> Proposé de manière volontaire par Zucc - <a href="http://katkatgo.fr/info/en/about">A propos </a>
+<br/> <a href="http://privacy.katkatgo.fr/">Privacy policy</a> | Contact : zucc@katkatgo.fr</a>
   </footer>
   <!--[if gte IE 9]>-->
   <script src="{{ url_for('static', filename='js/searxng.min.js') }}"></script>

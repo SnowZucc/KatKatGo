@@ -1,79 +1,61 @@
-# About SearXNG
+# Qu'est-ce que KatKatGo ????
 
-SearXNG is a [metasearch engine], aggregating the results of other
-{{link('search engines', 'preferences')}} while not storing information about
-its users.
+### KatKatGo est un [métamoteur de recherche](https://fr.wikipedia.org/wiki/M%C3%A9tamoteur) basé sur le projet [Searx](https://fr.wikipedia.org/wiki/Searx). Il a été conçu pour maximiser la confidentionalité tout en proposant des résultats cohérents.
 
-The SearXNG project is driven by an open community, come join us on Matrix if
-you have questions or just want to chat about SearXNG at [#searxng:matrix.org]
+* ### Aucune donnée n'est vendue et les recherches sont supprimées après avoir été recherchées
+* ### Il est équipé d'un proxy d'images : les images que vous regardez sont chargées de manière anonymisée
+* ### Possibilité de chercher dans les forums d'informatique, dans les articles scientifiques ou sur reddit uniquement
+* ### Les différentes catégories permettent d'affiner votre recherche
+* ### Vous pouvez accéder à l'archive d'une page en un clic
 
-Make SearXNG better.
+</br>
 
-- You can improve SearXNG translations at [Weblate], or...
-- Track development, send contributions, and report issues at [SearXNG sources].
-- To get further information, visit SearXNG's project documentation at [SearXNG
-  docs].
+# Qui suis-je ??
 
-## Why use it?
+### Je suis Zucc, un étudiant en école d'ingénieur passionné d'informatique. Le problème étant que Google vous espionne et que DuckDuckGo propose des résultats médiocres, j'ai voulu créer mon propre moteur de recherche qui, selon moi, allie le meilleur des deux mondes et vous propose des résultats cohérents sans vous pister.</br></br>J'ai mis ce moteur de recherche à disposition de tout le monde, et je suis ravi de vous inviter à en profiter. N'hésitez pas à me faire part de vos commentaires et de vos suggestions pour améliorer encore plus l'expérience utilisateur. Mon mail : zucc@katkatgo.fr
 
-- SearXNG may not offer you as personalized results as Google, but it doesn't
-  generate a profile about you.
-- SearXNG doesn't care about what you search for, never shares anything with a
-  third-party, and it can't be used to compromise you.
-- SearXNG is free software, the code is 100% open, and everyone is welcome to
-  make it better.
+</br>
 
-If you do care about privacy, want to be a conscious user, or otherwise believe
-in digital freedom, make SearXNG your default search engine or run it on your
-own server!
+# Ajouter KatKatGo comme navigateur par défaut
 
-## How do I set it as the default search engine?
+### Méthode facile : télécharger l'extension KatKatGo
+- [Chrome/Brave/Edge](https://chrome.google.com/webstore/detail/katkatgo/dpnafclbanjolggfiedpidlfjmjdlpfd?hl=fr)
+- [Firefox/Librewolf/Tor](https://addons.mozilla.org/en-US/firefox/addon/katkatgo-private-search-engine/?utm_source=addons.mozilla.org&utm_medium=referral&)
 
-SearXNG supports [OpenSearch].  For more information on changing your default
-search engine, see your browser's documentation:
+### Méthode compliquée
+### Chrome/Brave
+1. Faire une recherche sur KatKatGo
+2. Clic droit sur la barre d'URL, gérer les moteurs
+3. Seulement si KatKatGo n'y est pas : 
+Cliquer sur "ajouter"
+4. Remplir comme ceci :
+KatKatGo
+k
+katkatgo.fr/search?q=%s
+5. Trois petits points - définir par défaut
 
-- [Firefox]
-- [Microsoft Edge] - Behind the link, you will also find some useful instructions
-  for Chrome and Safari.
-- [Chromium]-based browsers only add websites that the user navigates to without
-  a path.
+### Microsoft Edge
+1. Faire une recherche sur KatKatGo
+2. Paramètres - Taper "moteur" - Barre d'adresse et recherche - Gérer les moteurs de recherche
+3. Seulement si KatKatGo n'y est pas : 
+Cliquer sur "ajouter"
+4. Remplir comme ceci :
+KatKatGo
+k
+katkatgo.fr/search?q=%s
 
-When adding a search engine, there must be no duplicates with the same name.  If
-you encounter a problem where you cannot add the search engine, you can either:
+### Firefox : 
+1. Clic droit sur la barre de navigation et ajouter KatKatGo
+2. Paramètres - Recherche
+3. Moteur de recherche par défaut : KatKatGo
 
-- remove the duplicate (default name: SearXNG) or
-- contact the owner to give the instance a different name than the default.
+### Opera/OperaGX
+Impossible (merci Opera -_-)
 
-## How does it work?
+<!-- <img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="40" height="40" /> -->
 
-SearXNG is a fork from the well-known [searx] [metasearch engine] which was
-inspired by the [Seeks project].  It provides basic privacy by mixing your
-queries with searches on other platforms without storing search data.  SearXNG
-can be added to your browser's search bar; moreover, it can be set as the
-default search engine.
+## Liens divers
+[Télécharger mon jeu-vidéo](http://urlshortener.at/cpSWX)
 
-The {{link('stats page', 'stats')}} contains some useful anonymous usage
-statistics about the engines used.
-
-## How can I make it my own?
-
-SearXNG appreciates your concern regarding logs, so take the code from the
-[SearXNG sources] and run it yourself!
-
-Add your instance to this [list of public
-instances]({{get_setting('brand.public_instances')}}) to help other people
-reclaim their privacy and make the internet freer.  The more decentralized the
-internet is, the more freedom we have!
-
-
-[SearXNG sources]: {{GIT_URL}}
-[#searxng:matrix.org]: https://matrix.to/#/#searxng:matrix.org
-[SearXNG docs]: {{get_setting('brand.docs_url')}}
-[searx]: https://github.com/searx/searx
-[metasearch engine]: https://en.wikipedia.org/wiki/Metasearch_engine
-[Weblate]: https://translate.codeberg.org/projects/searxng/
-[Seeks project]: https://beniz.github.io/seeks/
-[OpenSearch]: https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md
-[Firefox]: https://support.mozilla.org/en-US/kb/add-or-remove-search-engine-firefox
-[Microsoft Edge]: https://support.microsoft.com/en-us/help/4028574/microsoft-edge-change-the-default-search-engine
-[Chromium]: https://www.chromium.org/tab-to-search
+## Crédits
+Logo du site : ma.alx
