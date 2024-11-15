@@ -24,7 +24,7 @@
 
 .. _static_use_hash:
 
-``static_use_hash`` :
+``static_use_hash`` : ``$SEARXNG_STATIC_USE_HASH``
   Enables `cache busting`_ of static files.
 
 ``default_locale`` :
@@ -58,7 +58,7 @@
   Name of the theme you want to use by default on your SearXNG instance.
 
 ``theme_args.simple_style``:
-  Style of simple theme: ``auto``, ``light``, ``dark``
+  Style of simple theme: ``auto``, ``light``, ``dark``, ``black``
 
 ``results_on_new_tab``:
   Open result links in a new tab by default.

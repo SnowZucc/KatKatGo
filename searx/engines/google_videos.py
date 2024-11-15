@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """This is the implementation of the Google Videos engine.
 
 .. admonition:: Content-Security-Policy (CSP)
@@ -35,6 +34,7 @@ from searx.engines.google import (
     detect_google_sorry,
 )
 from searx.enginelib.traits import EngineTraits
+from searx.utils import get_embeded_stream_url
 
 if TYPE_CHECKING:
     import logging
@@ -57,6 +57,7 @@ about = {
 
 categories = ['videos', 'web']
 paging = True
+max_page = 50
 language_support = True
 time_range_support = True
 safesearch = True
@@ -86,7 +87,7 @@ def request(query, params):
 
     if params['time_range'] in time_range_dict:
         query_url += '&' + urlencode({'tbs': 'qdr:' + time_range_dict[params['time_range']]})
-    if params['safesearch']:
+    if 'safesearch' in params:
         query_url += '&' + urlencode({'safe': filter_mapping[params['safesearch']]})
     params['url'] = query_url
 
@@ -107,8 +108,8 @@ def response(resp):
     # parse results
     for result in eval_xpath_list(dom, '//div[contains(@class, "g ")]'):
 
-        img_src = eval_xpath_getindex(result, './/img/@src', 0, None)
-        if img_src is None:
+        thumbnail = eval_xpath_getindex(result, './/img/@src', 0, None)
+        if thumbnail is None:
             continue
 
         title = extract_text(eval_xpath_getindex(result, './/a/h3[1]', 0))
@@ -124,7 +125,8 @@ def response(resp):
                 'title': title,
                 'content': content,
                 'author': pub_info,
-                'thumbnail': img_src,
+                'thumbnail': thumbnail,
+                'iframe_src': get_embeded_stream_url(url),
                 'template': 'videos.html',
             }
         )

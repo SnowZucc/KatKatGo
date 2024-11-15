@@ -1,6 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
-# pyright: basic
 """Render SearXNG instance documentation.
 
 Usage in a Flask app route:
@@ -19,6 +17,8 @@ Usage in a Flask app route:
 
 """
 
+from __future__ import annotations
+
 __all__ = ['InfoPage', 'InfoPageSet']
 
 import os
@@ -27,18 +27,28 @@ import logging
 import typing
 
 import urllib.parse
+from functools import cached_property
 import jinja2
 from flask.helpers import url_for
 from markdown_it import MarkdownIt
 
 from .. import get_setting
-from ..compat import cached_property
 from ..version import GIT_URL
 from ..locales import LOCALE_NAMES
 
 
 logger = logging.getLogger('searx.infopage')
 _INFO_FOLDER = os.path.abspath(os.path.dirname(__file__))
+INFO_PAGES: 'InfoPageSet'
+
+
+def __getattr__(name):
+    if name == 'INFO_PAGES':
+        global INFO_PAGES  # pylint: disable=global-statement
+        INFO_PAGES = InfoPageSet()
+        return INFO_PAGES
+
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 
 class InfoPage:
