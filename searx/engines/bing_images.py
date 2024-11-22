@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Bing-Images: description see :py:obj:`searx.engines.bing`.
 """
 # pylint: disable=invalid-name
@@ -92,7 +91,7 @@ def response(resp):
 
         metadata = json.loads(result.xpath('.//a[@class="iusc"]/@m')[0])
         title = ' '.join(result.xpath('.//div[@class="infnmpt"]//a/text()')).strip()
-        img_format = ' '.join(result.xpath('.//div[@class="imgpt"]/div/span/text()')).strip()
+        img_format = ' '.join(result.xpath('.//div[@class="imgpt"]/div/span/text()')).strip().split(" · ")
         source = ' '.join(result.xpath('.//div[@class="imgpt"]//div[@class="lnkw"]//a/text()')).strip()
         results.append(
             {
@@ -100,10 +99,11 @@ def response(resp):
                 'url': metadata['purl'],
                 'thumbnail_src': metadata['turl'],
                 'img_src': metadata['murl'],
-                'content': metadata['desc'],
+                'content': metadata.get('desc'),
                 'title': title,
                 'source': source,
-                'img_format': img_format,
+                'resolution': img_format[0],
+                'img_format': img_format[1] if len(img_format) >= 2 else None,
             }
         )
     return results

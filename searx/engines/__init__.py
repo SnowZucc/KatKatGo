@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Load and initialize the ``engines``, see :py:func:`load_engines` and register
 :py:obj:`engine_shortcuts`.
 
@@ -45,6 +44,7 @@ ENGINE_DEFAULT_ARGS = {
     "using_tor_proxy": False,
     "send_accept_language_header": False,
     "tokens": [],
+    "max_page": 0,
 }
 # set automatically when an engine does not have any tab category
 DEFAULT_CATEGORY = 'other'

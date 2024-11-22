@@ -41,7 +41,7 @@ PATH="${REPO_ROOT}/node_modules/.bin:${PATH}"
 
 PYOBJECTS="searx"
 PY_SETUP_EXTRAS='[test]'
-GECKODRIVER_VERSION="v0.33.0"
+GECKODRIVER_VERSION="v0.35.0"
 # SPHINXOPTS=
 BLACK_OPTIONS=("--target-version" "py311" "--line-length" "120" "--skip-string-normalization")
 BLACK_TARGETS=("--exclude" "(searx/static|searx/languages.py)" "--include" 'searxng.msg|\.pyi?$' "searx" "searxng_extra" "tests")
@@ -52,39 +52,20 @@ if [ -S "${_dev_redis_sock}" ] && [ -z "${SEARXNG_REDIS_URL}" ]; then
     export SEARXNG_REDIS_URL="unix://${_dev_redis_sock}?db=0"
 fi
 
-pylint.FILES() {
-
-    # List files tagged by comment:
-    #
-    #   # lint: pylint
-    #
-    # These py files are linted by test.pylint()
-
-    grep -l -r --include \*.py '^#[[:blank:]]*lint:[[:blank:]]*pylint' searx searxng_extra tests
-    find . -name searxng.msg
-}
-
 YAMLLINT_FILES=()
 while IFS= read -r line; do
-   YAMLLINT_FILES+=("$line")
-done <<< "$(git ls-files './tests/*.yml' './searx/*.yml' './utils/templates/etc/searxng/*.yml')"
+    if [ "$line" != "tests/unit/settings/syntaxerror_settings.yml" ]; then
+        YAMLLINT_FILES+=("$line")
+    fi
+done <<< "$(git ls-files './tests/*.yml' './searx/*.yml' './utils/templates/etc/searxng/*.yml' '.github/*.yml' '.github/*/*.yml')"
 
 RST_FILES=(
     'README.rst'
 )
 
-PYLINT_SEARXNG_DISABLE_OPTION="\
-I,C,R,\
-W0105,W0212,W0511,W0603,W0613,W0621,W0702,W0703,W1401,\
-E1136"
-PYLINT_ADDITIONAL_BUILTINS_FOR_ENGINES="traits,supported_languages,language_aliases,logger,categories"
-PYLINT_OPTIONS="-m pylint -j 0 --rcfile .pylintrc"
-
 help() {
     nvm.help
     cat <<EOF
-buildenv:
-  rebuild ./utils/brand.env
 webapp.:
   run       : run developer instance
 docs.:
@@ -111,8 +92,6 @@ pyenv.:
   uninstall : uninstall developer installation
   cmd ...   : run command ... in virtualenv
   OK        : test if virtualenv is OK
-pypi.upload:
-  Upload python packages to PyPi (to test use pypi.upload.test)
 format.:
   python    : format Python code source using black
 pygments.:
@@ -153,29 +132,6 @@ webapp.run() {
         xdg-open http://127.0.0.1:8888/
     )&
     SEARXNG_DEBUG=1 pyenv.cmd python -m searx.webapp
-}
-
-buildenv() {
-
-    # settings file from repository's working tree are used by default
-    SEARXNG_SETTINGS_PATH="${REPO_ROOT}/searx/settings.yml"
-
-    if [ -f /etc/searx/settings.yml ]; then
-        err_msg "settings.yml in /etc/searx/ is deprecated, move file to folder /etc/searxng/"
-    fi
-
-    if [ -r '/etc/searxng/settings.yml' ]; then
-        if ask_yn "should settings read from: /etc/searxng/settings.yml"; then
-            SEARXNG_SETTINGS_PATH='/etc/searxng/settings.yml'
-        fi
-    fi
-    export SEARXNG_SETTINGS_PATH
-    (
-        set -e
-        SEARXNG_DEBUG=1 pyenv.cmd python utils/build_env.py 2>&1 \
-            | prefix_stdout "${_Blue}BUILDENV${_creset}  "
-    )
-    return "${PIPESTATUS[0]}"
 }
 
 docker.push() {
@@ -277,7 +233,7 @@ gecko.driver() {
             build_msg INSTALL "geckodriver already installed"
             return
         fi
-        PLATFORM="$(python3 -c 'import platform; print(platform.system().lower(), platform.architecture()[0])')"
+        PLATFORM="$(python -c 'import platform; print(platform.system().lower(), platform.architecture()[0])')"
         case "$PLATFORM" in
             "linux 32bit" | "linux2 32bit") ARCH="linux32";;
             "linux 64bit" | "linux2 64bit") ARCH="linux64";;
@@ -343,9 +299,8 @@ pyenv.install() {
 
     (   set -e
         pyenv
-        build_msg PYENV "[install] pip install -e 'searx${PY_SETUP_EXTRAS}'"
-        "${PY_ENV_BIN}/python" -m pip install -e ".${PY_SETUP_EXTRAS}"
-        buildenv
+        build_msg PYENV "[install] pip install --use-pep517 --no-build-isolation -e 'searx${PY_SETUP_EXTRAS}'"
+        "${PY_ENV_BIN}/python" -m pip install --use-pep517 --no-build-isolation -e ".${PY_SETUP_EXTRAS}"
     )
     local exit_val=$?
     if [ ! $exit_val -eq 0 ]; then
@@ -360,30 +315,11 @@ pyenv.uninstall() {
 
 }
 
-pypi.upload() {
-    py.clean
-    py.build
-    # https://github.com/pypa/twine
-    pyenv.cmd twine upload "${PYDIST}"/*
-}
-
-pypi.upload.test() {
-    py.clean
-    py.build
-    pyenv.cmd twine upload -r testpypi "${PYDIST}"/*
-}
-
 format.python() {
     build_msg TEST "[format.python] black \$BLACK_TARGETS"
     pyenv.cmd black "${BLACK_OPTIONS[@]}" "${BLACK_TARGETS[@]}"
     dump_return $?
 }
-
-
-PYLINT_FILES=()
-while IFS= read -r line; do
-   PYLINT_FILES+=("$line")
-done <<< "$(pylint.FILES)"
 
 # shellcheck disable=SC2119
 main() {

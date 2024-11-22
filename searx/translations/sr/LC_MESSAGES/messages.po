@@ -7,24 +7,27 @@
 # Marc Abonce Seguin, 2019
 # jugi1, 2017
 # Markus Heiser <markus.heiser@darmarit.de>, 2022.
-# SecularSteve <fairfull.playing@gmail.com>, 2022.
+# SecularSteve <fairfull.playing@gmail.com>, 2022, 2023.
 # return42 <markus.heiser@darmarit.de>, 2023.
+# return42 <return42@users.noreply.translate.codeberg.org>, 2024.
+# crnobog <crnobog@users.noreply.translate.codeberg.org>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version:  searx\n"
+"Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-05 09:01+0000\n"
-"PO-Revision-Date: 2023-09-12 14:53+0000\n"
-"Last-Translator: return42 <markus.heiser@darmarit.de>\n"
+"POT-Creation-Date: 2024-10-05 06:24+0000\n"
+"PO-Revision-Date: 2024-11-21 08:13+0000\n"
+"Last-Translator: return42 <return42@users.noreply.translate.codeberg.org>\n"
+"Language-Team: Serbian <https://translate.codeberg.org/projects/searxng/"
+"searxng/sr/>\n"
 "Language: sr\n"
-"Language-Team: Serbian "
-"<https://translate.codeberg.org/projects/searxng/searxng/sr/>\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.12.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.8.1\n"
+"Generated-By: Babel 2.16.0\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
 #: searx/searxng.msg
@@ -65,6 +68,16 @@ msgstr "слике"
 #: searx/searxng.msg
 msgid "videos"
 msgstr "видео снимци"
+
+#. CATEGORY_NAMES['RADIO']
+#: searx/engines/radio_browser.py:103 searx/searxng.msg
+msgid "radio"
+msgstr "радио"
+
+#. CATEGORY_NAMES['TV']
+#: searx/searxng.msg
+msgid "tv"
+msgstr "телевизија"
 
 #. CATEGORY_NAMES['IT']
 #: searx/searxng.msg
@@ -151,112 +164,303 @@ msgstr "светло"
 msgid "dark"
 msgstr "мрачно"
 
-#: searx/webapp.py:331
+#. STYLE_NAMES['BLACK']
+#: searx/searxng.msg
+msgid "black"
+msgstr ""
+
+#. BRAND_CUSTOM_LINKS['UPTIME']
+#: searx/searxng.msg
+msgid "Uptime"
+msgstr "Време рада"
+
+#. BRAND_CUSTOM_LINKS['ABOUT']
+#: searx/searxng.msg searx/templates/simple/base.html:50
+msgid "About"
+msgstr "О нама"
+
+#. WEATHER_TERMS['AVERAGE TEMP.']
+#: searx/engines/wttr.py:32 searx/searxng.msg
+msgid "Average temp."
+msgstr "Просечна температура"
+
+#. WEATHER_TERMS['CLOUD COVER']
+#: searx/engines/open_meteo.py:91 searx/searxng.msg
+msgid "Cloud cover"
+msgstr "Облачност"
+
+#. WEATHER_TERMS['CONDITION']
+#: searx/engines/duckduckgo_weather.py:45 searx/engines/wttr.py:51
+#: searx/searxng.msg
+msgid "Condition"
+msgstr "Стање"
+
+#. WEATHER_TERMS['CURRENT CONDITION']
+#: searx/engines/duckduckgo_weather.py:118 searx/engines/wttr.py:104
+#: searx/searxng.msg
+msgid "Current condition"
+msgstr "Тренутно стање"
+
+#. WEATHER_TERMS['EVENING']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+#, fuzzy
+msgid "Evening"
+msgstr "Вече"
+
+#. WEATHER_TERMS['FEELS LIKE']
+#: searx/engines/duckduckgo_weather.py:53 searx/engines/open_meteo.py:81
+#: searx/engines/wttr.py:59 searx/searxng.msg
+msgid "Feels like"
+msgstr "Осећај"
+
+#. WEATHER_TERMS['HUMIDITY']
+#: searx/engines/duckduckgo_weather.py:64 searx/engines/open_meteo.py:93
+#: searx/engines/wttr.py:68 searx/searxng.msg
+msgid "Humidity"
+msgstr "Влажност"
+
+#. WEATHER_TERMS['MAX TEMP.']
+#: searx/engines/duckduckgo_weather.py:77 searx/engines/wttr.py:34
+#: searx/searxng.msg
+msgid "Max temp."
+msgstr "Највећа темп."
+
+#. WEATHER_TERMS['MIN TEMP.']
+#: searx/engines/duckduckgo_weather.py:73 searx/engines/wttr.py:33
+#: searx/searxng.msg
+msgid "Min temp."
+msgstr "Најмања темп."
+
+#. WEATHER_TERMS['MORNING']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+#, fuzzy
+msgid "Morning"
+msgstr "Јутро"
+
+#. WEATHER_TERMS['NIGHT']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+#, fuzzy
+msgid "Night"
+msgstr "Ноћ"
+
+#. WEATHER_TERMS['NOON']
+#: searx/engines/wttr.py:100 searx/searxng.msg
+#, fuzzy
+msgid "Noon"
+msgstr "Подне"
+
+#. WEATHER_TERMS['PRESSURE']
+#: searx/engines/open_meteo.py:95 searx/searxng.msg
+msgid "Pressure"
+msgstr "Притисак"
+
+#. WEATHER_TERMS['SUNRISE']
+#: searx/engines/duckduckgo_weather.py:81 searx/engines/wttr.py:36
+#: searx/searxng.msg
+msgid "Sunrise"
+msgstr ""
+
+#. WEATHER_TERMS['SUNSET']
+#: searx/engines/duckduckgo_weather.py:82 searx/engines/wttr.py:37
+#: searx/searxng.msg
+msgid "Sunset"
+msgstr ""
+
+#. WEATHER_TERMS['TEMPERATURE']
+#: searx/engines/duckduckgo_weather.py:48 searx/engines/open_meteo.py:76
+#: searx/engines/wttr.py:55 searx/searxng.msg
+msgid "Temperature"
+msgstr ""
+
+#. WEATHER_TERMS['UV INDEX']
+#: searx/engines/duckduckgo_weather.py:80 searx/engines/wttr.py:35
+#: searx/searxng.msg
+msgid "UV index"
+msgstr ""
+
+#. WEATHER_TERMS['VISIBILITY']
+#: searx/engines/duckduckgo_weather.py:62 searx/engines/wttr.py:66
+#: searx/searxng.msg
+msgid "Visibility"
+msgstr ""
+
+#. WEATHER_TERMS['WIND']
+#: searx/engines/duckduckgo_weather.py:58 searx/engines/open_meteo.py:86
+#: searx/engines/wttr.py:62 searx/searxng.msg
+msgid "Wind"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['SUBSCRIBERS']
+#: searx/engines/lemmy.py:85 searx/searxng.msg
+msgid "subscribers"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['POSTS']
+#: searx/engines/lemmy.py:86 searx/searxng.msg
+msgid "posts"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['ACTIVE USERS']
+#: searx/engines/lemmy.py:87 searx/searxng.msg
+msgid "active users"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['COMMENTS']
+#: searx/engines/discourse.py:157 searx/engines/hackernews.py:78
+#: searx/engines/lemmy.py:130 searx/searxng.msg
+msgid "comments"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['USER']
+#: searx/engines/lemmy.py:129 searx/engines/lemmy.py:164 searx/searxng.msg
+msgid "user"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['COMMUNITY']
+#: searx/engines/lemmy.py:131 searx/engines/lemmy.py:165 searx/searxng.msg
+msgid "community"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['POINTS']
+#: searx/engines/hackernews.py:78 searx/searxng.msg
+msgid "points"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['TITLE']
+#: searx/searxng.msg
+msgid "title"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['AUTHOR']
+#: searx/engines/hackernews.py:81 searx/searxng.msg
+msgid "author"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['THREAD OPEN']
+#: searx/engines/discourse.py:149 searx/searxng.msg
+msgid "open"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['THREAD CLOSED']
+#: searx/engines/discourse.py:149 searx/searxng.msg
+msgid "closed"
+msgstr ""
+
+#. SOCIAL_MEDIA_TERMS['THREAD ANSWERED']
+#: searx/engines/discourse.py:160 searx/searxng.msg
+msgid "answered"
+msgstr ""
+
+#: searx/webapp.py:332
 msgid "No item found"
 msgstr "Ставка није пронађена"
 
-#: searx/engines/qwant.py:280
-#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:333
+#: searx/engines/qwant.py:288
+#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:334
 msgid "Source"
 msgstr "Извор"
 
-#: searx/webapp.py:335
+#: searx/webapp.py:336
 msgid "Error loading the next page"
 msgstr "Грешка приликом учитавања следеће странице"
 
-#: searx/webapp.py:492 searx/webapp.py:888
+#: searx/webapp.py:495 searx/webapp.py:898
 msgid "Invalid settings, please edit your preferences"
 msgstr "Неважеће поставке, молимо уредите свој избор"
 
-#: searx/webapp.py:508
+#: searx/webapp.py:511
 msgid "Invalid settings"
 msgstr "Неважећа подешавања"
 
-#: searx/webapp.py:585 searx/webapp.py:667
+#: searx/webapp.py:588 searx/webapp.py:670
 msgid "search error"
 msgstr "грешка у претрази"
 
-#: searx/webutils.py:34
+#: searx/webutils.py:36
 msgid "timeout"
 msgstr "тајмаут"
 
-#: searx/webutils.py:35
+#: searx/webutils.py:37
 msgid "parsing error"
 msgstr "грешка при парсирању"
 
-#: searx/webutils.py:36
+#: searx/webutils.py:38
 msgid "HTTP protocol error"
 msgstr "грешка у HTTP протоколу"
 
-#: searx/webutils.py:37
+#: searx/webutils.py:39
 msgid "network error"
 msgstr "грешка на мрежи"
 
-#: searx/webutils.py:38
+#: searx/webutils.py:40
 msgid "SSL error: certificate validation has failed"
 msgstr "SSL грешка: валидација сертификата није успела"
 
-#: searx/webutils.py:40
+#: searx/webutils.py:42
 msgid "unexpected crash"
 msgstr "неочекиван престанак рада"
 
-#: searx/webutils.py:47
+#: searx/webutils.py:49
 msgid "HTTP error"
 msgstr "HTTP грешка"
 
-#: searx/webutils.py:48
+#: searx/webutils.py:50
 msgid "HTTP connection error"
 msgstr "проблем при HTTPS конекцији"
 
-#: searx/webutils.py:54
+#: searx/webutils.py:56
 msgid "proxy error"
 msgstr "прокси грешка"
 
-#: searx/webutils.py:55
+#: searx/webutils.py:57
 msgid "CAPTCHA"
 msgstr "CAPTCHA"
 
-#: searx/webutils.py:56
+#: searx/webutils.py:58
 msgid "too many requests"
 msgstr "превише захтева"
 
-#: searx/webutils.py:57
+#: searx/webutils.py:59
 msgid "access denied"
 msgstr "није дозвољен приступ"
 
-#: searx/webutils.py:58
+#: searx/webutils.py:60
 msgid "server API error"
 msgstr "серверска API грешка"
 
-#: searx/webutils.py:77
+#: searx/webutils.py:79
 msgid "Suspended"
 msgstr "Суспендован"
 
-#: searx/webutils.py:317
+#: searx/webutils.py:314
 msgid "{minutes} minute(s) ago"
 msgstr "пре {minutes} минут(у,е,а)"
 
-#: searx/webutils.py:318
+#: searx/webutils.py:315
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "пре {hours} час(a) и {minutes} минут(у,е,а)"
 
-#: searx/answerers/random/answerer.py:73
+#: searx/answerers/random/answerer.py:76
 msgid "Random value generator"
 msgstr "Генератор случајних вредности"
 
-#: searx/answerers/random/answerer.py:74
+#: searx/answerers/random/answerer.py:77
 msgid "Generate different random values"
 msgstr "Генеришите различите случајне вредности"
 
-#: searx/answerers/statistics/answerer.py:47
+#: searx/answerers/statistics/answerer.py:50
 msgid "Statistics functions"
 msgstr "Статистичке функције"
 
-#: searx/answerers/statistics/answerer.py:48
+#: searx/answerers/statistics/answerer.py:51
 msgid "Compute {functions} of the arguments"
 msgstr "Израчунајте {functions} аргумената"
 
-#: searx/engines/openstreetmap.py:160
+#: searx/engines/mozhi.py:57
+msgid "Synonyms"
+msgstr ""
+
+#: searx/engines/openstreetmap.py:159
 msgid "Get directions"
 msgstr "Упутства за правац"
 
@@ -268,31 +472,28 @@ msgstr "{title} (ЗАСТАРЕЛО)"
 msgid "This entry has been superseded by"
 msgstr "Овај унос је заменио"
 
-#: searx/engines/qwant.py:282
+#: searx/engines/qwant.py:290
 msgid "Channel"
 msgstr "Канал"
 
-#: searx/engines/radio_browser.py:104
-msgid "radio"
-msgstr ""
+#: searx/engines/radio_browser.py:105
+msgid "bitrate"
+msgstr "битрата"
 
 #: searx/engines/radio_browser.py:106
-msgid "bitrate"
-msgstr ""
+msgid "votes"
+msgstr "гласови"
 
 #: searx/engines/radio_browser.py:107
-msgid "votes"
-msgstr ""
-
-#: searx/engines/radio_browser.py:108
 msgid "clicks"
-msgstr ""
+msgstr "кликови"
 
-#: searx/engines/seekr.py:194 searx/engines/zlibrary.py:129
+#: searx/engines/seekr.py:193 searx/engines/yummly.py:71
+#: searx/engines/zlibrary.py:137
 msgid "Language"
 msgstr "Језик"
 
-#: searx/engines/semantic_scholar.py:81
+#: searx/engines/semantic_scholar.py:78
 msgid ""
 "{numCitations} citations from the year {firstCitationVelocityYear} to "
 "{lastCitationVelocityYear}"
@@ -300,7 +501,7 @@ msgstr ""
 "{numCitations} цитата од {{firstCitationVelocityYear} до "
 "{lastCitationVelocityYear} године"
 
-#: searx/engines/tineye.py:40
+#: searx/engines/tineye.py:45
 msgid ""
 "Could not read that image url. This may be due to an unsupported file "
 "format. TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or"
@@ -310,7 +511,7 @@ msgstr ""
 "формата датотеке. ТинЕие подржава само слике које су ЈПЕГ, ПНГ, ГИФ, БМП,"
 " ТИФФ или ВебП формата."
 
-#: searx/engines/tineye.py:46
+#: searx/engines/tineye.py:51
 msgid ""
 "The image is too simple to find matches. TinEye requires a basic level of"
 " visual detail to successfully identify matches."
@@ -318,67 +519,53 @@ msgstr ""
 "Слика је превише једноставна за проналажење подударања. ТинЕие захтева "
 "основни ниво визуелних детаља да би успешно идентификовао подударања."
 
-#: searx/engines/tineye.py:52
+#: searx/engines/tineye.py:57
 msgid "The image could not be downloaded."
 msgstr "Није могуће преузети слику."
 
-#: searx/engines/wttr.py:101
-msgid "Morning"
-msgstr "Jutro"
-
-#: searx/engines/wttr.py:101
-msgid "Noon"
-msgstr "Podne"
-
-#: searx/engines/wttr.py:101
-msgid "Evening"
-msgstr "Vece"
-
-#: searx/engines/wttr.py:101
-msgid "Night"
-msgstr "Noc"
-
-#: searx/engines/zlibrary.py:130
+#: searx/engines/zlibrary.py:138
 msgid "Book rating"
-msgstr ""
+msgstr "Оцена књиге"
 
-#: searx/engines/zlibrary.py:131
+#: searx/engines/zlibrary.py:139
 msgid "File quality"
+msgstr "Квалитет датотеке"
+
+#: searx/plugins/calculator.py:14
+msgid "Calculate mathematical expressions via the search bar"
 msgstr ""
 
-#: searx/plugins/hash_plugin.py:24
+#: searx/plugins/hash_plugin.py:10
 msgid "Converts strings to different hash digests."
 msgstr "Претвара стринг у другачије хешеве."
 
-#: searx/plugins/hash_plugin.py:52
+#: searx/plugins/hash_plugin.py:38
 msgid "hash digest"
 msgstr "Излаз хеш функције"
 
-#: searx/plugins/hostname_replace.py:9
-msgid "Hostname replace"
-msgstr "Замени име хостинга"
-
-#: searx/plugins/hostname_replace.py:10
-msgid "Rewrite result hostnames or remove results based on the hostname"
+#: searx/plugins/hostnames.py:103
+msgid "Hostnames plugin"
 msgstr ""
-"Поново упишите име хостинга или избришите резултате базиране на имену "
-"хостинга"
 
-#: searx/plugins/oa_doi_rewrite.py:9
+#: searx/plugins/hostnames.py:104
+msgid "Rewrite hostnames, remove results or prioritize them based on the hostname"
+msgstr ""
+
+#: searx/plugins/oa_doi_rewrite.py:12
 msgid "Open Access DOI rewrite"
 msgstr "Отворени приступ DOI преписа"
 
-#: searx/plugins/oa_doi_rewrite.py:10
+#: searx/plugins/oa_doi_rewrite.py:13
 msgid ""
 "Avoid paywalls by redirecting to open-access versions of publications "
 "when available"
 msgstr "Избегните плаћање у случају да је доступна бесплатна публикација"
 
-#: searx/plugins/self_info.py:10
+#: searx/plugins/self_info.py:9
 msgid "Self Information"
 msgstr "Licna Informacija"
 
-#: searx/plugins/self_info.py:11
+#: searx/plugins/self_info.py:10
 msgid ""
 "Displays your IP if the query is \"ip\" and your user agent if the query "
 "contains \"user agent\"."
@@ -386,11 +573,19 @@ msgstr ""
 "Прикажите своју IP адресу ако је упит \"ip\" и ако кориснички агент "
 "садржи \"user agent\"."
 
-#: searx/plugins/tor_check.py:25
+#: searx/plugins/self_info.py:28
+msgid "Your IP is: "
+msgstr ""
+
+#: searx/plugins/self_info.py:31
+msgid "Your user-agent is: "
+msgstr ""
+
+#: searx/plugins/tor_check.py:24
 msgid "Tor check plugin"
 msgstr "Додатак за проверу Тор-а"
 
-#: searx/plugins/tor_check.py:28
+#: searx/plugins/tor_check.py:27
 msgid ""
 "This plugin checks if the address of the request is a Tor exit-node, and "
 "informs the user if it is; like check.torproject.org, but from SearXNG."
@@ -398,13 +593,15 @@ msgstr ""
 "Овај додатак проверава да ли је адреса захтева излазни чвор ТОР-а и "
 "обавештава корисника ако јесте, као check.torproject.org али са SearXNG."
 
-#: searx/plugins/tor_check.py:62
+#: searx/plugins/tor_check.py:61
 msgid ""
 "Could not download the list of Tor exit-nodes from: "
 "https://check.torproject.org/exit-addresses"
 msgstr ""
+"Није могуће преузети листу Тор излазних чворова са: "
+"https://check.torproject.org/exit-addresses"
 
-#: searx/plugins/tor_check.py:78
+#: searx/plugins/tor_check.py:77
 msgid ""
 "You are using Tor and it looks like you have this external IP address: "
 "{ip_address}"
@@ -412,17 +609,21 @@ msgstr ""
 "Koristis Tor i izgleda da je ovo tvoja externlana IP addresa : "
 "{ip_address}"
 
-#: searx/plugins/tor_check.py:86
+#: searx/plugins/tor_check.py:85
 msgid "You are not using Tor and you have this external IP address: {ip_address}"
-msgstr ""
+msgstr "Не користите Тор и имате ову спољну ИП адресу: {ip_address}"
 
-#: searx/plugins/tracker_url_remover.py:29
+#: searx/plugins/tracker_url_remover.py:16
 msgid "Tracker URL remover"
 msgstr "Уклони трекер URL адресе"
 
-#: searx/plugins/tracker_url_remover.py:30
+#: searx/plugins/tracker_url_remover.py:17
 msgid "Remove trackers arguments from the returned URL"
 msgstr "Уклања аргументе трекера од повратне URL адресе"
+
+#: searx/plugins/unit_converter.py:29
+msgid "Convert between units"
+msgstr ""
 
 #: searx/templates/simple/404.html:4
 msgid "Page not found"
@@ -437,48 +638,45 @@ msgstr "Иди на %(search_page)s."
 msgid "search page"
 msgstr "Претражи страницу"
 
-#: searx/templates/simple/base.html:49
-msgid "About"
-msgstr "О нама"
-
-#: searx/templates/simple/base.html:53
+#: searx/templates/simple/base.html:54
 msgid "Donate"
 msgstr "Донирај"
 
-#: searx/templates/simple/base.html:57
+#: searx/templates/simple/base.html:58
 #: searx/templates/simple/preferences.html:156
 msgid "Preferences"
 msgstr "Подешавања"
 
-#: searx/templates/simple/base.html:67
+#: searx/templates/simple/base.html:68
 msgid "Powered by"
 msgstr "Покреће"
 
-#: searx/templates/simple/base.html:67
+#: searx/templates/simple/base.html:68
 msgid "a privacy-respecting, open metasearch engine"
 msgstr "Javni meta pretrazivac koji postuje privatnost"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
+#: searx/templates/simple/result_templates/packages.html:59
 msgid "Source code"
 msgstr "Изворни код"
 
-#: searx/templates/simple/base.html:69
+#: searx/templates/simple/base.html:70
 msgid "Issue tracker"
 msgstr "Трагач проблема"
 
-#: searx/templates/simple/base.html:70 searx/templates/simple/stats.html:18
+#: searx/templates/simple/base.html:71 searx/templates/simple/stats.html:18
 msgid "Engine stats"
 msgstr "Статистика"
 
-#: searx/templates/simple/base.html:72
+#: searx/templates/simple/base.html:73
 msgid "Public instances"
 msgstr "Јавне инстанце"
 
-#: searx/templates/simple/base.html:75
+#: searx/templates/simple/base.html:76
 msgid "Privacy policy"
 msgstr "Политика приватности"
 
-#: searx/templates/simple/base.html:78
+#: searx/templates/simple/base.html:79
 msgid "Contact instance maintainer"
 msgstr "Контактирај домара инстанце"
 
@@ -486,21 +684,26 @@ msgstr "Контактирај домара инстанце"
 msgid "Click on the magnifier to perform search"
 msgstr "Кликни на лупу за претрагу"
 
-#: searx/templates/simple/macros.html:36
+#: searx/templates/simple/macros.html:40
 msgid "Length"
 msgstr "Дужина"
 
-#: searx/templates/simple/macros.html:37
-#: searx/templates/simple/result_templates/images.html:18
+#: searx/templates/simple/macros.html:41
+msgid "Views"
+msgstr ""
+
+#: searx/templates/simple/macros.html:42
+#: searx/templates/simple/result_templates/files.html:34
+#: searx/templates/simple/result_templates/images.html:19
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
 msgstr "Аутор"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:50
 msgid "cached"
 msgstr "кеширано"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:50
 msgid "proxied"
 msgstr "прокси"
 
@@ -528,7 +731,7 @@ msgstr "Пријавите нову грешку на Гитхабу укључ�
 msgid "No HTTPS"
 msgstr "Нема HTTPS"
 
-#: searx/templates/simple/elements/engines_msg.html:18
+#: searx/templates/simple/elements/engines_msg.html:14
 #: searx/templates/simple/preferences.html:69
 #: searx/templates/simple/preferences.html:70
 msgid "View error logs and submit a bug report"
@@ -536,11 +739,11 @@ msgstr "Погледајте информације о грешки и приј�
 
 #: searx/templates/simple/preferences.html:74
 msgid "!bang for this engine"
-msgstr ""
+msgstr "!bang за овај мотор"
 
 #: searx/templates/simple/preferences.html:80
 msgid "!bang for its categories"
-msgstr ""
+msgstr "!bang за своје категорије"
 
 #: searx/templates/simple/preferences.html:102
 #: searx/templates/simple/stats.html:64
@@ -573,27 +776,27 @@ msgstr "Уопштено"
 msgid "Default categories"
 msgstr "Подразумеване категорије"
 
-#: searx/templates/simple/preferences.html:187
+#: searx/templates/simple/preferences.html:190
 msgid "User interface"
 msgstr "Кориснички интерфејс"
 
-#: searx/templates/simple/preferences.html:208
+#: searx/templates/simple/preferences.html:211
 msgid "Privacy"
 msgstr "Приватност"
 
-#: searx/templates/simple/preferences.html:221
+#: searx/templates/simple/preferences.html:224
 msgid "Engines"
 msgstr "Претраживачи"
 
-#: searx/templates/simple/preferences.html:223
+#: searx/templates/simple/preferences.html:226
 msgid "Currently used search engines"
 msgstr "Тренутно коришћени претраживачи"
 
-#: searx/templates/simple/preferences.html:231
+#: searx/templates/simple/preferences.html:234
 msgid "Special Queries"
 msgstr "Посебни упити"
 
-#: searx/templates/simple/preferences.html:237
+#: searx/templates/simple/preferences.html:240
 msgid "Cookies"
 msgstr "Колачићи"
 
@@ -601,27 +804,27 @@ msgstr "Колачићи"
 msgid "Answers"
 msgstr "Одговори"
 
-#: searx/templates/simple/results.html:38
+#: searx/templates/simple/results.html:42
 msgid "Number of results"
 msgstr "Број резултата"
 
-#: searx/templates/simple/results.html:44
+#: searx/templates/simple/results.html:48
 msgid "Info"
 msgstr "Информације"
 
-#: searx/templates/simple/results.html:73
+#: searx/templates/simple/results.html:75
 msgid "Try searching for:"
 msgstr "Покушај да нађеш:"
 
-#: searx/templates/simple/results.html:105
+#: searx/templates/simple/results.html:107
 msgid "Back to top"
 msgstr "Назад на врх"
 
-#: searx/templates/simple/results.html:123
+#: searx/templates/simple/results.html:125
 msgid "Previous page"
 msgstr "Претходна страница"
 
-#: searx/templates/simple/results.html:140
+#: searx/templates/simple/results.html:143
 msgid "Next page"
 msgstr "Следећа страница"
 
@@ -648,7 +851,7 @@ msgstr "Претрага"
 msgid "There is currently no data available. "
 msgstr "Тренутно нема доступних података."
 
-#: searx/templates/simple/preferences/engines.html:18
+#: searx/templates/simple/preferences/engines.html:24
 #: searx/templates/simple/stats.html:25
 msgid "Engine name"
 msgstr "Име претраживача"
@@ -661,12 +864,13 @@ msgstr "Резултати"
 msgid "Result count"
 msgstr "Број резултата"
 
-#: searx/templates/simple/preferences/engines.html:25
+#: searx/templates/simple/elements/engines_msg.html:7
+#: searx/templates/simple/preferences/engines.html:31
 #: searx/templates/simple/stats.html:28
 msgid "Response time"
 msgstr "Време одзива"
 
-#: searx/templates/simple/preferences/engines.html:29
+#: searx/templates/simple/preferences/engines.html:35
 #: searx/templates/simple/stats.html:29
 msgid "Reliability"
 msgstr "Поузданост"
@@ -707,6 +911,7 @@ msgstr "Проценат"
 msgid "Parameter"
 msgstr "Параметар"
 
+#: searx/templates/simple/result_templates/files.html:36
 #: searx/templates/simple/stats.html:119
 msgid "Filename"
 msgstr "Назив документа"
@@ -735,21 +940,27 @@ msgstr "Коментар(и)"
 msgid "Download results"
 msgstr "Резултати преузимања"
 
-#: searx/templates/simple/elements/engines_msg.html:7
+#: searx/templates/simple/elements/engines_msg.html:4
 msgid "Messages from the search engines"
-msgstr ""
+msgstr "Поруке из претраживача"
 
-#: searx/templates/simple/elements/engines_msg.html:12
-msgid "Error!"
-msgstr "Грешка!"
-
-#: searx/templates/simple/elements/engines_msg.html:13
-msgid "Engines cannot retrieve results"
-msgstr "Не може повратити резултате"
+#: searx/templates/simple/elements/engines_msg.html:7
+msgid "seconds"
+msgstr "s"
 
 #: searx/templates/simple/elements/search_url.html:3
 msgid "Search URL"
 msgstr "Тражи URL адресу"
+
+#: searx/templates/simple/elements/search_url.html:4
+#: searx/templates/simple/preferences/cookies.html:54
+msgid "Copied"
+msgstr "Копирано"
+
+#: searx/templates/simple/elements/search_url.html:4
+#: searx/templates/simple/preferences/cookies.html:54
+msgid "Copy"
+msgstr "Копирај"
 
 #: searx/templates/simple/elements/suggestions.html:3
 msgid "Suggestions"
@@ -760,21 +971,21 @@ msgstr "Предлози"
 msgid "Search language"
 msgstr "Језик претраге"
 
-#: searx/templates/simple/filters/languages.html:2
+#: searx/templates/simple/filters/languages.html:4
 #: searx/templates/simple/preferences/language.html:7
 msgid "Default language"
 msgstr "Подразумевани језик"
 
-#: searx/templates/simple/filters/languages.html:4
+#: searx/templates/simple/filters/languages.html:8
 #: searx/templates/simple/preferences/language.html:11
 msgid "Auto-detect"
-msgstr ""
+msgstr "Аутоматски откриј"
 
 #: searx/templates/simple/filters/safesearch.html:1
 #: searx/templates/simple/filters/safesearch.html:2
 #: searx/templates/simple/filters/safesearch.html:3
 #: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences/engines.html:21
+#: searx/templates/simple/preferences/engines.html:27
 #: searx/templates/simple/preferences/safesearch.html:2
 msgid "SafeSearch"
 msgstr "Безбедна Претрага"
@@ -795,7 +1006,7 @@ msgid "None"
 msgstr "Ништа"
 
 #: searx/templates/simple/filters/time_range.html:1
-#: searx/templates/simple/preferences/engines.html:22
+#: searx/templates/simple/preferences/engines.html:28
 msgid "Time range"
 msgstr "Временски опсег"
 
@@ -827,32 +1038,44 @@ msgstr "Информације!"
 msgid "currently, there are no cookies defined."
 msgstr "тренутно, нема дефинисаних колачића."
 
-#: searx/templates/simple/messages/no_results.html:3
+#: searx/templates/simple/messages/no_results.html:6
 msgid "Sorry!"
 msgstr "Опростите!"
 
-#: searx/templates/simple/messages/no_results.html:4
+#: searx/templates/simple/messages/no_results.html:12
 msgid "No results were found. You can try to:"
-msgstr ""
+msgstr "Нису пронађени резултати. Можете покушати да:"
 
-#: searx/templates/simple/messages/no_results.html:6
+#: searx/templates/simple/messages/no_results.html:14
+msgid "There are no more results. You can try to:"
+msgstr "Нема више резултата. Можете покушати да:"
+
+#: searx/templates/simple/messages/no_results.html:19
 msgid "Refresh the page."
-msgstr ""
+msgstr "Освежите страницу."
 
-#: searx/templates/simple/messages/no_results.html:7
+#: searx/templates/simple/messages/no_results.html:20
 msgid "Search for another query or select another category (above)."
-msgstr ""
+msgstr "Потражите други упит или да изаберете другу категорију (изнад)."
 
-#: searx/templates/simple/messages/no_results.html:8
+#: searx/templates/simple/messages/no_results.html:21
 msgid "Change the search engine used in the preferences:"
-msgstr ""
+msgstr "Промените претраживач који се користи у подешавањима:"
 
-#: searx/templates/simple/messages/no_results.html:9
+#: searx/templates/simple/messages/no_results.html:22
 msgid "Switch to another instance:"
-msgstr ""
+msgstr "Пребаците се на другу инстанцу:"
+
+#: searx/templates/simple/messages/no_results.html:24
+msgid "Search for another query or select another category."
+msgstr "Потражите други упит или изаберите другу категорију."
+
+#: searx/templates/simple/messages/no_results.html:25
+msgid "Go back to the previous page using the previous page button."
+msgstr "Вратите се на претходну страницу помоћу дугмета за претходну страницу."
 
 #: searx/templates/simple/preferences/answerers.html:4
-#: searx/templates/simple/preferences/engines.html:17
+#: searx/templates/simple/preferences/engines.html:23
 msgid "Allow"
 msgstr "Допусти"
 
@@ -861,6 +1084,7 @@ msgid "Keywords"
 msgstr "Кључне речи"
 
 #: searx/templates/simple/preferences/answerers.html:6
+#: searx/templates/simple/result_templates/packages.html:7
 msgid "Name"
 msgstr "Име"
 
@@ -932,7 +1156,7 @@ msgstr ""
 msgid "URL to restore your preferences in another browser"
 msgstr "УРЛ да бисте вратили своја подешавања у другом претраживачу"
 
-#: searx/templates/simple/preferences/cookies.html:44
+#: searx/templates/simple/preferences/cookies.html:43
 msgid ""
 "Specifying custom settings in the preferences URL can be used to sync "
 "preferences across devices."
@@ -940,35 +1164,65 @@ msgstr ""
 "Одређивање прилагођених подешавања у УРЛ-у може да се користи за "
 "синхронизацију подешавања на свим уређајима."
 
+#: searx/templates/simple/preferences/cookies.html:46
+msgid "Copy preferences hash"
+msgstr "Копирај хеш преференци"
+
+#: searx/templates/simple/preferences/cookies.html:57
+msgid "Insert copied preferences hash (without URL) to restore"
+msgstr "Унесите копирани хеш преференци (без УРЛ-а) за повратак"
+
+#: searx/templates/simple/preferences/cookies.html:59
+msgid "Preferences hash"
+msgstr "Хеш преференци"
+
 #: searx/templates/simple/preferences/doi_resolver.html:2
 msgid "Open Access DOI resolver"
 msgstr "Отворени приступ DOI решења"
 
 #: searx/templates/simple/preferences/doi_resolver.html:14
 msgid "Select service used by DOI rewrite"
-msgstr ""
+msgstr "Изаберите услугу коју користи ДОИ изновопис"
 
 #: searx/templates/simple/preferences/engines.html:9
 msgid ""
 "This tab does not exists in the user interface, but you can search in "
 "these engines by its !bangs."
 msgstr ""
+"Ова картица не постоји у корисничком интерфејсу, али можете претраживати "
+"у овим машинама по његовим !bangs-има."
 
-#: searx/templates/simple/preferences/engines.html:19
-msgid "!bang"
+#: searx/templates/simple/preferences/engines.html:15
+msgid "Enable all"
 msgstr ""
 
-#: searx/templates/simple/preferences/engines.html:20
+#: searx/templates/simple/preferences/engines.html:16
+msgid "Disable all"
+msgstr ""
+
+#: searx/templates/simple/preferences/engines.html:25
+msgid "!bang"
+msgstr "!bang"
+
+#: searx/templates/simple/preferences/engines.html:26
 msgid "Supports selected language"
 msgstr "Подржава изабрани језик"
 
-#: searx/templates/simple/preferences/engines.html:23
+#: searx/templates/simple/preferences/engines.html:29
 msgid "Weight"
-msgstr ""
+msgstr "Тежина"
 
-#: searx/templates/simple/preferences/engines.html:27
+#: searx/templates/simple/preferences/engines.html:33
 msgid "Max time"
 msgstr "Макс. време"
+
+#: searx/templates/simple/preferences/favicon.html:2
+msgid "Favicon Resolver"
+msgstr ""
+
+#: searx/templates/simple/preferences/favicon.html:15
+msgid "Display favicons near search results"
+msgstr ""
 
 #: searx/templates/simple/preferences/footer.html:2
 msgid ""
@@ -1000,17 +1254,20 @@ msgstr "Назад"
 
 #: searx/templates/simple/preferences/hotkeys.html:2
 msgid "Hotkeys"
-msgstr ""
+msgstr "Пречаци"
 
 #: searx/templates/simple/preferences/hotkeys.html:13
 msgid "Vim-like"
-msgstr ""
+msgstr "Слично Вим-у"
 
 #: searx/templates/simple/preferences/hotkeys.html:18
 msgid ""
 "Navigate search results with hotkeys (JavaScript required). Press \"h\" "
 "key on main or result page to get help."
 msgstr ""
+"Крећите се кроз резултате претраге помоћу пречаћних тастера (потребан је "
+"JavaScript). Притисните тастер \"х\" на главној страници или страници са "
+"резултатима да бисте добили помоћ."
 
 #: searx/templates/simple/preferences/image_proxy.html:2
 msgid "Image proxy"
@@ -1037,6 +1294,8 @@ msgstr "Који језик преферирате за претрагу?"
 #: searx/templates/simple/preferences/language.html:25
 msgid "Choose Auto-detect to let SearXNG detect the language of your query."
 msgstr ""
+"Одаберите Ауто-детецт да бисте дозволили SearXNG да открије језик вашег "
+"упита."
 
 #: searx/templates/simple/preferences/method.html:2
 msgid "HTTP Method"
@@ -1044,7 +1303,7 @@ msgstr "ХТТП метода"
 
 #: searx/templates/simple/preferences/method.html:14
 msgid "Change how forms are submitted"
-msgstr ""
+msgstr "Промените начин слања образаца"
 
 #: searx/templates/simple/preferences/query_in_title.html:2
 msgid "Query in the page's title"
@@ -1079,6 +1338,8 @@ msgid ""
 "Perform search immediately if a category selected. Disable to select "
 "multiple categories"
 msgstr ""
+"Извршите претрагу одмах ако је одабрана категорија. Онемогућите да бисте "
+"изабрали више категорија"
 
 #: searx/templates/simple/preferences/theme.html:2
 msgid "Theme"
@@ -1117,10 +1378,13 @@ msgid "repo"
 msgstr "репозиторијуми"
 
 #: searx/templates/simple/result_templates/default.html:6
+#: searx/templates/simple/result_templates/files.html:8
+#: searx/templates/simple/result_templates/files.html:11
 msgid "show media"
 msgstr "покажи медије"
 
 #: searx/templates/simple/result_templates/default.html:6
+#: searx/templates/simple/result_templates/files.html:8
 msgid "hide media"
 msgstr "сакриј медије"
 
@@ -1129,15 +1393,34 @@ msgstr "сакриј медије"
 msgid "This site did not provide any description."
 msgstr "Овај сајт није дао никакав опис."
 
-#: searx/templates/simple/result_templates/images.html:19
+#: searx/templates/simple/result_templates/files.html:38
+#: searx/templates/simple/result_templates/images.html:22
+#: searx/templates/simple/result_templates/torrent.html:11
+msgid "Filesize"
+msgstr "величина фајла"
+
+#: searx/templates/simple/result_templates/files.html:40
+msgid "Date"
+msgstr "Датум"
+
+#: searx/templates/simple/result_templates/files.html:42
+#: searx/templates/simple/result_templates/paper.html:24
+msgid "Type"
+msgstr "Tip"
+
+#: searx/templates/simple/result_templates/images.html:20
+msgid "Resolution"
+msgstr "Резолуција"
+
+#: searx/templates/simple/result_templates/images.html:21
 msgid "Format"
 msgstr "Формат"
 
-#: searx/templates/simple/result_templates/images.html:21
+#: searx/templates/simple/result_templates/images.html:24
 msgid "Engine"
 msgstr "Енџин"
 
-#: searx/templates/simple/result_templates/images.html:22
+#: searx/templates/simple/result_templates/images.html:25
 msgid "View source"
 msgstr "Види извор"
 
@@ -1152,6 +1435,39 @@ msgstr "покажи мапу"
 #: searx/templates/simple/result_templates/map.html:43
 msgid "hide map"
 msgstr "сакриј мапу"
+
+#: searx/templates/simple/result_templates/packages.html:12
+msgid "Version"
+msgstr "Верзија"
+
+#: searx/templates/simple/result_templates/packages.html:18
+msgid "Maintainer"
+msgstr "Одржавалац"
+
+#: searx/templates/simple/result_templates/packages.html:24
+msgid "Updated at"
+msgstr "Обновљен у"
+
+#: searx/templates/simple/result_templates/packages.html:30
+#: searx/templates/simple/result_templates/paper.html:25
+msgid "Tags"
+msgstr "Tagovi"
+
+#: searx/templates/simple/result_templates/packages.html:36
+msgid "Popularity"
+msgstr "Популарност"
+
+#: searx/templates/simple/result_templates/packages.html:42
+msgid "License"
+msgstr "Лиценца"
+
+#: searx/templates/simple/result_templates/packages.html:52
+msgid "Project"
+msgstr "Пројекат"
+
+#: searx/templates/simple/result_templates/packages.html:55
+msgid "Project homepage"
+msgstr "Главна страница пројекта"
 
 #: searx/templates/simple/result_templates/paper.html:5
 msgid "Published date"
@@ -1168,14 +1484,6 @@ msgstr "Editor"
 #: searx/templates/simple/result_templates/paper.html:23
 msgid "Publisher"
 msgstr "Izdavac"
-
-#: searx/templates/simple/result_templates/paper.html:24
-msgid "Type"
-msgstr "Tip"
-
-#: searx/templates/simple/result_templates/paper.html:25
-msgid "Tags"
-msgstr "Tagovi"
 
 #: searx/templates/simple/result_templates/paper.html:26
 msgid "DOI"
@@ -1213,31 +1521,7 @@ msgstr "Хранилац"
 msgid "Leecher"
 msgstr "Личер"
 
-#: searx/templates/simple/result_templates/torrent.html:11
-msgid "Filesize"
-msgstr "величина фајла"
-
-#: searx/templates/simple/result_templates/torrent.html:12
-msgid "Bytes"
-msgstr "Бајта"
-
 #: searx/templates/simple/result_templates/torrent.html:13
-msgid "kiB"
-msgstr "kiB"
-
-#: searx/templates/simple/result_templates/torrent.html:14
-msgid "MiB"
-msgstr "MiB"
-
-#: searx/templates/simple/result_templates/torrent.html:15
-msgid "GiB"
-msgstr "GiB"
-
-#: searx/templates/simple/result_templates/torrent.html:16
-msgid "TiB"
-msgstr "TiB"
-
-#: searx/templates/simple/result_templates/torrent.html:20
 msgid "Number of Files"
 msgstr "Број фајлова"
 
@@ -1659,3 +1943,32 @@ msgstr "сакриј видео"
 #~ "нема никавих резултата претраге. Молимо "
 #~ "покишајте другу претрагу или категорију."
 
+#~ msgid "Rewrite result hostnames or remove results based on the hostname"
+#~ msgstr ""
+#~ "Поново упишите име хостинга или "
+#~ "избришите резултате базиране на имену "
+#~ "хостинга"
+
+#~ msgid "Bytes"
+#~ msgstr "Бајта"
+
+#~ msgid "kiB"
+#~ msgstr "kiB"
+
+#~ msgid "MiB"
+#~ msgstr "MiB"
+
+#~ msgid "GiB"
+#~ msgstr "GiB"
+
+#~ msgid "TiB"
+#~ msgstr "TiB"
+
+#~ msgid "Hostname replace"
+#~ msgstr "Замени име хостинга"
+
+#~ msgid "Error!"
+#~ msgstr "Грешка!"
+
+#~ msgid "Engines cannot retrieve results"
+#~ msgstr "Не може повратити резултате"

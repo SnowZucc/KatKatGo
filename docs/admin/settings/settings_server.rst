@@ -16,33 +16,28 @@
        image_proxy: false
        default_http_headers:
          X-Content-Type-Options : nosniff
-         X-XSS-Protection : 1; mode=block
          X-Download-Options : noopen
          X-Robots-Tag : noindex, nofollow
          Referrer-Policy : no-referrer
 
-``base_url`` : ``$SEARXNG_URL`` :ref:`buildenv <make buildenv>`
+``base_url`` : ``$SEARXNG_URL``
   The base URL where SearXNG is deployed.  Used to create correct inbound links.
-  If you change the value, don't forget to rebuild instance's environment
-  (:ref:`utils/brand.env <make buildenv>`)
 
-``port`` & ``bind_address``: ``$SEARXNG_PORT`` & ``$SEARXNG_BIND_ADDRESS`` :ref:`buildenv <make buildenv>`
+``port`` & ``bind_address``: ``$SEARXNG_PORT`` & ``$SEARXNG_BIND_ADDRESS``
   Port number and *bind address* of the SearXNG web application if you run it
   directly using ``python searx/webapp.py``.  Doesn't apply to a SearXNG
-  services running behind a proxy and using socket communications.  If you
-  change the value, don't forget to rebuild instance's environment
-  (:ref:`utils/brand.env <make buildenv>`)
+  services running behind a proxy and using socket communications.
 
 ``secret_key`` : ``$SEARXNG_SECRET``
   Used for cryptography purpose.
 
-``limiter`` :
+``limiter`` :  ``$SEARXNG_LIMITER``
   Rate limit the number of request on the instance, block some bots.  The
   :ref:`limiter` requires a :ref:`settings redis` database.
 
 .. _public_instance:
 
-``public_instance`` :
+``public_instance`` :  ``$SEARXNG_PUBLIC_INSTANCE``
 
   Setting that allows to enable features specifically for public instances (not
   needed for local usage).  By set to ``true`` the following features are
@@ -52,7 +47,7 @@
 
 .. _image_proxy:
 
-``image_proxy`` :
+``image_proxy`` : ``$SEARXNG_IMAGE_PROXY``
   Allow your instance of SearXNG of being able to proxy images.  Uses memory space.
 
 .. _HTTP headers: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers

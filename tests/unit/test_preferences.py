@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# pylint: disable=missing-module-docstring, invalid-name
+
+from tests import SearxTestCase
+from searx import favicons
 from searx.locales import locales_initialize
 from searx.preferences import (
     EnumStringSetting,
@@ -7,18 +12,19 @@ from searx.preferences import (
     PluginsSetting,
     ValidationException,
 )
-from tests import SearxTestCase
+from searx.plugins import Plugin
 
 locales_initialize()
+favicons.init()
 
 
-class PluginStub:
+class PluginStub(Plugin):  # pylint: disable=missing-class-docstring, too-few-public-methods
     def __init__(self, plugin_id, default_on):
         self.id = plugin_id
         self.default_on = default_on
 
 
-class TestSettings(SearxTestCase):
+class TestSettings(SearxTestCase):  # pylint: disable=missing-class-docstring
     # map settings
 
     def test_map_setting_invalid_default_value(self):
@@ -44,22 +50,22 @@ class TestSettings(SearxTestCase):
 
     def test_enum_setting_invalid_default_value(self):
         with self.assertRaises(ValidationException):
-            EnumStringSetting(3, choices=[0, 1, 2])
+            EnumStringSetting('3', choices=['0', '1', '2'])
 
     def test_enum_setting_invalid_choice(self):
-        setting = EnumStringSetting(0, choices=[0, 1, 2])
+        setting = EnumStringSetting('0', choices=['0', '1', '2'])
         with self.assertRaises(ValidationException):
-            setting.parse(3)
+            setting.parse('3')
 
     def test_enum_setting_valid_default(self):
-        setting = EnumStringSetting(3, choices=[1, 2, 3])
-        self.assertEqual(setting.get_value(), 3)
+        setting = EnumStringSetting('3', choices=['1', '2', '3'])
+        self.assertEqual(setting.get_value(), '3')
 
     def test_enum_setting_valid_choice(self):
-        setting = EnumStringSetting(3, choices=[1, 2, 3])
-        self.assertEqual(setting.get_value(), 3)
-        setting.parse(2)
-        self.assertEqual(setting.get_value(), 2)
+        setting = EnumStringSetting('3', choices=['1', '2', '3'])
+        self.assertEqual(setting.get_value(), '3')
+        setting.parse('2')
+        self.assertEqual(setting.get_value(), '2')
 
     # multiple choice settings
 
@@ -118,9 +124,9 @@ class TestSettings(SearxTestCase):
         self.assertEqual(set(setting.get_enabled()), set(['plugin1', 'plugin3']))
 
 
-class TestPreferences(SearxTestCase):
+class TestPreferences(SearxTestCase):  # pylint: disable=missing-class-docstring
     def test_encode(self):
-        from searx.preferences import Preferences
+        from searx.preferences import Preferences  # pylint: disable=import-outside-toplevel
 
         pref = Preferences(['simple'], ['general'], {}, [])
         url_params = (
