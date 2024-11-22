@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 import  sys, os
@@ -128,6 +127,7 @@ extensions = [
     "sphinx_tabs.tabs", # https://github.com/djungelorm/sphinx-tabs
     'myst_parser',  # https://www.sphinx-doc.org/en/master/usage/markdown.html
     'notfound.extension',  # https://github.com/readthedocs/sphinx-notfound-page
+    'sphinxcontrib.autodoc_pydantic',  # https://github.com/mansenfranzen/autodoc_pydantic
 ]
 
 autodoc_default_options = {

@@ -1,6 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
-
 """Abstract base classes for engine request processors.
 
 """
@@ -148,6 +146,11 @@ class EngineProcessor(ABC):
         """
         # if paging is not supported, skip
         if search_query.pageno > 1 and not self.engine.paging:
+            return None
+
+        # if max page is reached, skip
+        max_page = self.engine.max_page or settings['search']['max_page']
+        if max_page and max_page < search_query.pageno:
             return None
 
         # if time_range is not supported, skip

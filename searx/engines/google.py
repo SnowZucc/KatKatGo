@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """This is the implementation of the Google WEB engine.  Some of this
 implementations (manly the :py:obj:`get_google_info`) are shared by other
 engines:
@@ -48,6 +47,7 @@ about = {
 # engine dependent config
 categories = ['general', 'web']
 paging = True
+max_page = 50
 time_range_support = True
 safesearch = True
 
@@ -62,7 +62,7 @@ filter_mapping = {0: 'off', 1: 'medium', 2: 'high'}
 results_xpath = './/div[contains(@jscontroller, "SC7lYd")]'
 title_xpath = './/a/h3[1]'
 href_xpath = './/a[h3]/@href'
-content_xpath = './/div[@data-sncf]'
+content_xpath = './/div[contains(@data-sncf, "1")]'
 
 # Suggestions are links placed in a *card-section*, we extract only the text
 # from the links not the links itself.
@@ -334,9 +334,11 @@ def response(resp):
     # results --> answer
     answer_list = eval_xpath(dom, '//div[contains(@class, "LGOjhe")]')
     for item in answer_list:
+        for bubble in eval_xpath(item, './/div[@class="nnFGuf"]'):
+            bubble.drop_tree()
         results.append(
             {
-                'answer': item.xpath("normalize-space()"),
+                'answer': extract_text(item),
                 'url': (eval_xpath(item, '../..//a/@href') + [None])[0],
             }
         )
@@ -365,17 +367,17 @@ def response(resp):
                 logger.debug('ignoring item from the result_xpath list: missing content of title "%s"', title)
                 continue
 
-            img_src = content_nodes[0].xpath('.//img/@src')
-            if img_src:
-                img_src = img_src[0]
-                if img_src.startswith('data:image'):
+            thumbnail = content_nodes[0].xpath('.//img/@src')
+            if thumbnail:
+                thumbnail = thumbnail[0]
+                if thumbnail.startswith('data:image'):
                     img_id = content_nodes[0].xpath('.//img/@id')
                     if img_id:
-                        img_src = data_image_map.get(img_id[0])
+                        thumbnail = data_image_map.get(img_id[0])
             else:
-                img_src = None
+                thumbnail = None
 
-            results.append({'url': url, 'title': title, 'content': content, 'img_src': img_src})
+            results.append({'url': url, 'title': title, 'content': content, 'thumbnail': thumbnail})
 
         except Exception as e:  # pylint: disable=broad-except
             logger.error(e, exc_info=True)
@@ -429,18 +431,17 @@ def fetch_traits(engine_traits: EngineTraits, add_domains: bool = True):
     if not resp.ok:  # type: ignore
         raise RuntimeError("Response from Google's preferences is not OK.")
 
-    dom = html.fromstring(resp.text)  # type: ignore
+    dom = html.fromstring(resp.text.replace('<?xml version="1.0" encoding="UTF-8"?>', ''))
 
     # supported language codes
 
     lang_map = {'no': 'nb'}
-    for x in eval_xpath_list(dom, '//*[@id="langSec"]//input[@name="lr"]'):
-
-        eng_lang = x.get("value").split('_')[-1]
+    for x in eval_xpath_list(dom, "//select[@name='hl']/option"):
+        eng_lang = x.get("value")
         try:
             locale = babel.Locale.parse(lang_map.get(eng_lang, eng_lang), sep='-')
         except babel.UnknownLocaleError:
-            print("ERROR: %s -> %s is unknown by babel" % (x.get("data-name"), eng_lang))
+            print("INFO:  google UI language %s (%s) is unknown by babel" % (eng_lang, x.text.split("(")[0].strip()))
             continue
         sxng_lang = language_tag(locale)
 
@@ -456,7 +457,7 @@ def fetch_traits(engine_traits: EngineTraits, add_domains: bool = True):
 
     # supported region codes
 
-    for x in eval_xpath_list(dom, '//*[@name="region"]/..//input[@name="region"]'):
+    for x in eval_xpath_list(dom, "//select[@name='gl']/option"):
         eng_country = x.get("value")
 
         if eng_country in skip_countries:

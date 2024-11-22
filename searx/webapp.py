@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
-# pyright: basic
 """WebbApp
 
 """
@@ -63,7 +61,7 @@ from searx.botdetection import link_token
 from searx.data import ENGINE_DESCRIPTIONS
 from searx.results import Timing
 from searx.settings_defaults import OUTPUT_FORMATS
-from searx.settings_loader import get_default_settings_path
+from searx.settings_loader import DEFAULT_SETTINGS_FILE
 from searx.exceptions import SearxParameterException
 from searx.engines import (
     DEFAULT_CATEGORY,
@@ -125,6 +123,8 @@ from searx.locales import (
 
 # renaming names from searx imports ...
 from searx.autocomplete import search_autocomplete, backends as autocomplete_backends
+from searx import favicons
+
 from searx.redisdb import initialize as redis_initialize
 from searx.sxng_locales import sxng_locales
 from searx.search import SearchWithPlugins, initialize as search_initialize
@@ -278,8 +278,8 @@ def custom_url_for(endpoint: str, **values):
             suffix = "?" + file_hash
     if endpoint == 'info' and 'locale' not in values:
         locale = request.preferences.get_value('locale')
-        if _INFO_PAGES.get_page(values['pagename'], locale) is None:
-            locale = _INFO_PAGES.locale_default
+        if infopage.INFO_PAGES.get_page(values['pagename'], locale) is None:
+            locale = infopage.INFO_PAGES.locale_default
         values['locale'] = locale
     return url_for(endpoint, **values) + suffix
 
@@ -390,6 +390,7 @@ def render(template_name: str, **kwargs):
     # values from the preferences
     kwargs['preferences'] = request.preferences
     kwargs['autocomplete'] = request.preferences.get_value('autocomplete')
+    kwargs['favicon_resolver'] = request.preferences.get_value('favicon_resolver')
     kwargs['infinite_scroll'] = request.preferences.get_value('infinite_scroll')
     kwargs['search_on_category_select'] = request.preferences.get_value('search_on_category_select')
     kwargs['hotkeys'] = request.preferences.get_value('hotkeys')
@@ -433,6 +434,7 @@ def render(template_name: str, **kwargs):
     # helpers to create links to other pages
     kwargs['url_for'] = custom_url_for  # override url_for function in templates
     kwargs['image_proxify'] = image_proxify
+    kwargs['favicon_url'] = favicons.favicon_url
     kwargs['proxify'] = morty_proxify if settings['result_proxy']['url'] is not None else None
     kwargs['proxify_results'] = settings['result_proxy']['proxify_results']
     kwargs['cache_url'] = settings['ui']['cache_url']
@@ -515,7 +517,7 @@ def pre_request():
         preferences.parse_dict({"language": language})
         logger.debug('set language %s (from browser)', preferences.get_value("language"))
 
-    # locale is defined neither in settings nor in preferences
+    # UI locale is defined neither in settings nor in preferences
     # use browser headers
     if not preferences.get_value("locale"):
         locale = _get_browser_language(request, LOCALE_NAMES.keys())
@@ -763,6 +765,11 @@ def search():
         )
     )
 
+    # engine_timings: get engine response times sorted from slowest to fastest
+    engine_timings = sorted(result_container.get_timings(), reverse=True, key=lambda e: e.total)
+    max_response_time = engine_timings[0].total if engine_timings else None
+    engine_timings_pairs = [(timing.engine, timing.total) for timing in engine_timings]
+
     # search_query.lang contains the user choice (all, auto, en, ...)
     # when the user choice is "auto", search.search_query.lang contains the detected language
     # otherwise it is equals to search_query.lang
@@ -791,7 +798,9 @@ def search():
             settings['search']['languages'],
             fallback=request.preferences.get_value("language")
         ),
-        timeout_limit = request.form.get('timeout_limit', None)
+        timeout_limit = request.form.get('timeout_limit', None),
+        timings = engine_timings_pairs,
+        max_response_time = max_response_time
         # fmt: on
     )
 
@@ -806,14 +815,14 @@ def about():
 @app.route('/info/<locale>/<pagename>', methods=['GET'])
 def info(pagename, locale):
     """Render page of online user documentation"""
-    page = _INFO_PAGES.get_page(pagename, locale)
+    page = infopage.INFO_PAGES.get_page(pagename, locale)
     if page is None:
         flask.abort(404)
 
     user_locale = request.preferences.get_value('locale')
     return render(
         'info.html',
-        all_pages=_INFO_PAGES.iter_pages(user_locale, fallback_to_default=True),
+        all_pages=infopage.INFO_PAGES.iter_pages(user_locale, fallback_to_default=True),
         active_page=page,
         active_pagename=pagename,
     )
@@ -875,8 +884,8 @@ def preferences():
     # pylint: disable=too-many-locals, too-many-return-statements, too-many-branches
     # pylint: disable=too-many-statements
 
-    # save preferences using the link the /preferences?preferences=...&save=1
-    if request.args.get('save') == '1':
+    # save preferences using the link the /preferences?preferences=...
+    if request.args.get('preferences') or request.form.get('preferences'):
         resp = make_response(redirect(url_for('index', _external=True)))
         return request.preferences.save(resp)
 
@@ -1015,6 +1024,7 @@ def preferences():
         ],
         disabled_engines = disabled_engines,
         autocomplete_backends = autocomplete_backends,
+        favicon_resolver_names = favicons.proxy.CFG.resolver_map.keys(),
         shortcuts = {y: x for x, y in engine_shortcuts.items()},
         themes = themes,
         plugins = plugins,
@@ -1026,6 +1036,9 @@ def preferences():
         preferences = True
         # fmt: on
     )
+
+
+app.add_url_rule('/favicon_proxy', methods=['GET'], endpoint="favicon_proxy", view_func=favicons.favicon_proxy)
 
 
 @app.route('/image_proxy', methods=['GET'])
@@ -1163,6 +1176,21 @@ def stats():
                 reliability_order = 1 - reliability_order
         return (reliability_order, key, engine_stat['name'])
 
+    technical_report = []
+    for error in engine_reliabilities.get(selected_engine_name, {}).get('errors', []):
+        technical_report.append(
+            f"\
+            Error: {error['exception_classname'] or error['log_message']} \
+            Parameters: {error['log_parameters']} \
+            File name: {error['filename'] }:{ error['line_no'] } \
+            Error Function: {error['function']} \
+            Code: {error['code']} \
+            ".replace(
+                ' ' * 12, ''
+            ).strip()
+        )
+    technical_report = ' '.join(technical_report)
+
     engine_stats['time'] = sorted(engine_stats['time'], reverse=reverse, key=get_key)
     return render(
         # fmt: off
@@ -1172,6 +1200,7 @@ def stats():
         engine_reliabilities = engine_reliabilities,
         selected_engine_name = selected_engine_name,
         searx_git_branch = GIT_BRANCH,
+        technical_report = technical_report,
         # fmt: on
     )
 
@@ -1319,11 +1348,11 @@ werkzeug_reloader = flask_run_development or (searx_debug and __name__ == "__mai
 # initialize the engines except on the first run of the werkzeug server.
 if not werkzeug_reloader or (werkzeug_reloader and os.environ.get("WERKZEUG_RUN_MAIN") == "true"):
     locales_initialize()
-    _INFO_PAGES = infopage.InfoPageSet()
     redis_initialize()
     plugin_initialize(app)
     search_initialize(enable_checker=True, check_network=True, enable_metrics=settings['general']['enable_metrics'])
     limiter.initialize(app, settings)
+    favicons.init()
 
 
 def run():
@@ -1334,7 +1363,7 @@ def run():
         port=settings['server']['port'],
         host=settings['server']['bind_address'],
         threaded=True,
-        extra_files=[get_default_settings_path()],
+        extra_files=[DEFAULT_SETTINGS_FILE],
     )
 
 

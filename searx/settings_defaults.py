@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """Implementation of the default settings.
 
 """
@@ -19,7 +18,7 @@ searx_dir = abspath(dirname(__file__))
 logger = logging.getLogger('searx')
 OUTPUT_FORMATS = ['html', 'csv', 'json', 'rss']
 SXNG_LOCALE_TAGS = ['all', 'auto'] + list(l[0] for l in sxng_locales)
-SIMPLE_STYLE = ('auto', 'light', 'dark')
+SIMPLE_STYLE = ('auto', 'light', 'dark', 'black')
 CATEGORIES_AS_TABS = {
     'general': {},
     'images': {},
@@ -151,11 +150,13 @@ SCHEMA = {
         'docs_url': SettingsValue(str, 'https://docs.searxng.org'),
         'public_instances': SettingsValue((False, str), 'https://searx.space'),
         'wiki_url': SettingsValue(str, 'https://github.com/searxng/searxng/wiki'),
+        'custom': SettingsValue(dict, {'links': {}}),
     },
     'search': {
         'safe_search': SettingsValue((0, 1, 2), 0),
         'autocomplete': SettingsValue(str, ''),
         'autocomplete_min': SettingsValue(int, 4),
+        'favicon_resolver': SettingsValue(str, ''),
         'default_lang': SettingsValue(tuple(SXNG_LOCALE_TAGS + ['']), ''),
         'languages': SettingSublistValue(SXNG_LOCALE_TAGS, SXNG_LOCALE_TAGS),
         'ban_time_on_fail': SettingsValue(numbers.Real, 5),
@@ -169,15 +170,16 @@ SCHEMA = {
             'recaptcha_SearxEngineCaptcha': SettingsValue(numbers.Real, 604800),
         },
         'formats': SettingsValue(list, OUTPUT_FORMATS),
+        'max_page': SettingsValue(int, 0),
     },
     'server': {
         'port': SettingsValue((int, str), 8888, 'SEARXNG_PORT'),
         'bind_address': SettingsValue(str, '127.0.0.1', 'SEARXNG_BIND_ADDRESS'),
-        'limiter': SettingsValue(bool, False),
-        'public_instance': SettingsValue(bool, False),
+        'limiter': SettingsValue(bool, False, 'SEARXNG_LIMITER'),
+        'public_instance': SettingsValue(bool, False, 'SEARXNG_PUBLIC_INSTANCE'),
         'secret_key': SettingsValue(str, environ_name='SEARXNG_SECRET'),
         'base_url': SettingsValue((False, str), False, 'SEARXNG_BASE_URL'),
-        'image_proxy': SettingsValue(bool, False),
+        'image_proxy': SettingsValue(bool, False, 'SEARXNG_IMAGE_PROXY'),
         'http_protocol_version': SettingsValue(('1.0', '1.1'), '1.0'),
         'method': SettingsValue(('POST', 'GET'), 'POST'),
         'default_http_headers': SettingsValue(dict, {}),
@@ -187,7 +189,7 @@ SCHEMA = {
     },
     'ui': {
         'static_path': SettingsDirectoryValue(str, os.path.join(searx_dir, 'static')),
-        'static_use_hash': SettingsValue(bool, False),
+        'static_use_hash': SettingsValue(bool, False, 'SEARXNG_STATIC_USE_HASH'),
         'templates_path': SettingsDirectoryValue(str, os.path.join(searx_dir, 'templates')),
         'default_theme': SettingsValue(str, 'simple'),
         'default_locale': SettingsValue(str, ''),
