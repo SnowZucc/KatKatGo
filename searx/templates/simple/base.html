@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html class="no-js theme-{{ preferences.get_value('simple_style') or 'auto' }} center-aligment-{{ preferences.get_value('center_alignment') and 'yes' or 'no' }}" lang="{{ locale_rfc5646 }}" {% if rtl %} dir="rtl"{% endif %}>
+<html class="no-js theme-{{ preferences.get_value('simple_style') or 'auto' }} center-alignment-{{ preferences.get_value('center_alignment') and 'yes' or 'no' }}" lang="{{ locale_rfc5646 }}" {% if rtl %} dir="rtl"{% endif %}>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="description" content="KatKatGo - La confidentialité sans compromis !">
   <meta name="keywords" content="KatKatGo - La confidentialité sans compromis !">
   <meta name="generator" content="searxng/{{ searx_version }}">
@@ -13,51 +13,55 @@
   <title>{% block title %}{% endblock %}{{ instance_name }}</title>
   {% block meta %}{% endblock %}
   {% if rtl %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/searxng-rtl.min.css') }}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/searxng-rtl.min.css') }}" type="text/css" media="screen">
   {% else %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/searxng.min.css') }}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/searxng.min.css') }}" type="text/css" media="screen">
+  {% endif %}
+  {% if get_setting('server.limiter') or get_setting('server.public_instance') %}
+  <link rel="stylesheet" href="{{ url_for('client_token', token=link_token) }}" type="text/css">
   {% endif %}
   {% block styles %}{% endblock %}
   <!--[if gte IE 9]>-->
   <script src="{{ url_for('static', filename='js/searxng.head.min.js') }}" client_settings="{{ client_settings }}"></script>
   <!--<![endif]-->
   {% block head %}
-  <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}"/>
+  <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}">
   {% endblock %}
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
-  
-  <style>
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+<style>
     .dropdown {
-      position: relative;
-      display: inline-block;
+        position: relative;
+        display: inline-block;
     }
-    
+
     .dropdown-content {
-      display: none;
-      position: absolute;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
     }
-    
+
     .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
     }
-    
+
     .dropdown:hover .dropdown-content {
-      display: block;
+        display: block;
     }
+
     .dropbtn {
-  background: transparent;
-  color: inherit;
-  border: none;
-  outline: none;
-}
-  </style>
+        background: transparent;
+        color: inherit;
+        border: none;
+        outline: none;
+    }
+</style>
 </head>
 <body class="{{ endpoint }}_endpoint" >
   <main id="main_{{  self._TemplateReference__context.name|replace("simple/", "")|replace(".html", "") }}" class="{{body_class}}">
@@ -74,54 +78,53 @@
 
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
-      {%- block linkto_about -%}
       <div class="dropdown">
         <button class="dropbtn">Extension</button>
         <div id="myDropdown" class="dropdown-content">
           <a href="https://chromewebstore.google.com/detail/katkatgo/dpnafclbanjolggfiedpidlfjmjdlpfd">Chrome/Edge/Brave</a>
           <a href="https://addons.mozilla.org/fr/firefox/addon/katkatgo-private-search-engine">Firefox/LibreWolf</a>
            </div>
-          </div>
-      <div class="dropdown">
-        <button class="dropbtn">Katchat</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="https://chat.katkatgo.fr">Chat</a>
-          <a href="https://api.katkatgo.fr">Compte</a>
-          <!-- <a href="https://chat.katkatgo.fr/plugins">Plugins</a> -->
-          <a href="https://variableroundedpress.crispypiez.repl.co/?q=web&sort_by=most_popular">Plugins</a>
-        </div>
       </div>
       <a href="https://discord.gg/P3VFT3hVPw" class="link_on_top_louia">{{ _('Discord') }}</a>
+            {%- block linkto_preferences -%}
+        <a href="{{ url_for('preferences') }}" class="link_on_top_preferences">{{ icon_big('menu-outline') }}<span>{{ _('Preferences') }}</span></a>
       {%- endblock -%}
       {%- block linkto_donate -%}
-      {%- if donation_url -%}
-      <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
-      {%- endif -%}
+        {%- if donation_url -%}
+        <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
+        {%- endif -%}
       {%- endblock -%}
+            {%- block linkto_about -%}
         <a href="{{ url_for('info', pagename='about') }}" class="link_on_top_about">{{ icon_big('information-circle-outline') }}<span>{{ _('About') }}</span></a>
+      {%- endblock -%}
     </nav>
     {% block header %}
     {% endblock %}
     {% block content %}
     {% endblock %}
   </main>
-
-  <style>
-    footer {
-      font-size: 13px; /* Change the font size as desired */
-    }
-  </style>
-
   <footer>
-    
-    {{ _('KatKatGo permet de faire ses recherches sans être pisté.') }} <br/> Searx version {{ searx_version }}
+    <p>
+    {{ _('KatKatGo') }} — {{ _('a privacy-respecting, open metasearch engine') }}<br>{{ _('Proposé de manière volontaire par Zucc') }}<br>
+        {{ _('Version Searx :') }} {{ searx_version }}
         {% if enable_metrics %}| <a href="{{ url_for('stats') }}">{{ _('Engine stats') }}</a>{% endif %}
-<br/> Proposé de manière volontaire par Zucc - <a href="http://katkatgo.fr/info/en/about">A propos </a>
-<br/> <a href="http://privacy.katkatgo.fr/">Privacy policy</a> | Contact : zucc@katkatgo.fr</a>
+        {% if get_setting('brand.public_instances') %}
+        | <a href="{{ get_setting('brand.public_instances') }}">{{ _('Public instances') }}</a>
+        {% endif %}
+        {% if get_setting('general.privacypolicy_url') %}
+        | <a href="{{ get_setting('general.privacypolicy_url') }}">{{ _('Privacy policy') }}</a>
+        {% endif %}
+        {% if get_setting('general.contact_url') %}
+        | <a href="{{ get_setting('general.contact_url') }}">{{ _('Contact') }}</a>
+        | <a href=http://uptime.katkatgo.fr/>{{ _('Uptime') }}</a>
+        {% endif %}
+        {% for title, link in get_setting('brand.custom.links').items() %}
+        | <a href="{{ link }}">{{ _(title) }}</a>
+        {% endfor %}
+    </p>
   </footer>
   <!--[if gte IE 9]>-->
   <script src="{{ url_for('static', filename='js/searxng.min.js') }}"></script>
   <!--<![endif]-->
 </body>
 </html>
-
