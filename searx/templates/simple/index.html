@@ -1,34 +1,62 @@
 {% extends "simple/base.html" %}
 {% from 'simple/icons.html' import icon_big %}
 {% block content %}
-<div class="index">
-    <div class="title"><h1>SearXNG</h1></div>
-    {% include 'simple/simple_search.html' %}
-</div> </br>
+    <style>
+        .donation-banner {
+            position: absolute; /* En dessous du menu, sans décaler les éléments */
+            top: 50px; /* Ajuste en fonction de la hauteur du menu */
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, #5865f2, #4752c4);
+            padding: 10px 15px;
+            text-align: center;
+            width: 90%; /* Occupe presque toute la largeur */
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(88, 101, 242, 0.2);
+            border-radius: 8px;
+            z-index: 10; /* Sous le menu */
+        }
+
+        .donation-text {
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (min-width: 768px) {
+            .donation-banner {
+                width: 80%;
+                top: 120px; /* Ajuste si le menu est plus grand sur PC */
+                font-size: 16px;
+            }
+        }
+
+        @keyframes gentle-fade {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="donation-banner">
+        <a href="https://www.patreon.com/KatKatGo" target="_blank" class="donation-link">
+            <p class="donation-text">
+                KatKatGo est proposé gratuitement, et me prend de l'argent et du temps à entretenir et améliorer. Si le service vous est utile, un <span class="highlight">petit don</span> me sera très utile 💝
+            </p>
+        </a>
+    </div>
+
+    <div class="index">
+        <div class="title"><h1>SearXNG</h1></div>
+        {% include 'simple/simple_search.html' %}
+    </div> </br>
 {% endblock %}
 
 {% block extra_js %}
-<script>
-  var iframe = document.getElementById("chatgpt-iframe");
-  var iframeFocused = false;
-
-  iframe.addEventListener("mouseover", function() {
-    iframeFocused = true;
-  });
-
-  iframe.addEventListener("mouseout", function() {
-    iframeFocused = false;
-  });
-
-  function logEvent(key) {
-    var logUrl = "/log?key=" + encodeURIComponent(key) + "&timestamp=" + encodeURIComponent(new Date().toISOString());
-    new Image().src = logUrl;
-  }
-
-  window.addEventListener("keydown", function(event) {
-    if (iframeFocused) {
-      logEvent(event.key);
-    }
-  });
-</script>
 {% endblock %}
