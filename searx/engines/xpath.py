@@ -12,6 +12,8 @@ Request:
 - :py:obj:`search_url`
 - :py:obj:`lang_all`
 - :py:obj:`soft_max_redirects`
+- :py:obj:`method`
+- :py:obj:`request_body`
 - :py:obj:`cookies`
 - :py:obj:`headers`
 
@@ -50,7 +52,7 @@ Example
 =======
 
 Here is a simple example of a XPath engine configured in the :ref:`settings
-engine` section, further read :ref:`engines-dev`.
+engines` section, further read :ref:`engines-dev`.
 
 .. code:: yaml
 
@@ -72,6 +74,7 @@ from urllib.parse import urlencode
 from lxml import html
 from searx.utils import extract_text, extract_url, eval_xpath, eval_xpath_list
 from searx.network import raise_for_httperror
+from searx.result_types import EngineResults
 
 search_url = None
 """
@@ -151,6 +154,16 @@ headers = {}
 '''Some engines might offer different result based headers.  Possible use-case:
 To set header to moderate.'''
 
+method = 'GET'
+'''Some engines might require to do POST requests for search.'''
+
+request_body = ''
+'''The body of the request.  This can only be used if different :py:obj:`method`
+is set, e.g. ``POST``.  For formatting see the documentation of :py:obj:`search_url`::
+
+    search={query}&page={pageno}{time_range}{safe_search}
+'''
+
 paging = False
 '''Engine supports paging [True or False].'''
 
@@ -221,8 +234,9 @@ def request(query, params):
         time_range = time_range_url.format(time_range_val=time_range_val)
 
     safe_search = ''
-    if params['safesearch']:
-        safe_search = safe_search_map[params['safesearch']]
+    safe_search_val = params.get('safesearch')
+    if safe_search_val is not None:
+        safe_search = safe_search_map[safe_search_val]
 
     fargs = {
         'query': urlencode({'q': query})[2:],
@@ -236,21 +250,31 @@ def request(query, params):
     params['headers'].update(headers)
 
     params['url'] = search_url.format(**fargs)
-    params['soft_max_redirects'] = soft_max_redirects
+    params['method'] = method
 
+    if request_body:
+        # don't url-encode the query if it's in the request body
+        fargs['query'] = query
+        params['data'] = request_body.format(**fargs)
+
+    params['soft_max_redirects'] = soft_max_redirects
     params['raise_for_httperror'] = False
 
     return params
 
 
-def response(resp):  # pylint: disable=too-many-branches
-    '''Scrap *results* from the response (see :ref:`engine results`).'''
+def response(resp) -> EngineResults:  # pylint: disable=too-many-branches
+    """Scrap *results* from the response (see :ref:`result types`)."""
+    results = EngineResults()
+
     if no_result_for_http_status and resp.status_code in no_result_for_http_status:
-        return []
+        return results
 
     raise_for_httperror(resp)
 
-    results = []
+    if not resp.text:
+        return results
+
     dom = html.fromstring(resp.text)
     is_onion = 'onions' in categories
 

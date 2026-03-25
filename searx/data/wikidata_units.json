@@ -14,9 +14,19 @@
         "symbol": "thm (EC)",
         "to_si_factor": 105506000.0
     },
+    "Q100293463": {
+        "si_name": "Q100293463",
+        "symbol": "Pa⁻¹ s⁻¹",
+        "to_si_factor": 1.0
+    },
     "Q100293891": {
         "si_name": "Q100293891",
         "symbol": "V s",
+        "to_si_factor": 1.0
+    },
+    "Q100294053": {
+        "si_name": "Q100294053",
+        "symbol": "W/(sr m)",
         "to_si_factor": 1.0
     },
     "Q100296845": {
@@ -28,6 +38,11 @@
         "si_name": "Q11573",
         "symbol": "ch (UK)",
         "to_si_factor": 20.117
+    },
+    "Q100989321": {
+        "si_name": "Q910311",
+        "symbol": "T",
+        "to_si_factor": 1.0
     },
     "Q100995": {
         "si_name": "Q11570",
@@ -148,6 +163,16 @@
         "si_name": "Q25343",
         "symbol": "Ym²",
         "to_si_factor": 1e+48
+    },
+    "Q101515060": {
+        "si_name": "Q101515303",
+        "symbol": "g/J",
+        "to_si_factor": 0.001
+    },
+    "Q101515303": {
+        "si_name": "Q101515303",
+        "symbol": "kg/J",
+        "to_si_factor": 1.0
     },
     "Q101875087": {
         "si_name": "Q281096",
@@ -939,6 +964,11 @@
         "symbol": "cup (US)",
         "to_si_factor": 0.000236588
     },
+    "Q105839488": {
+        "si_name": "Q39369",
+        "symbol": "/min",
+        "to_si_factor": 0.016666666666666666
+    },
     "Q105840138": {
         "si_name": null,
         "symbol": "BU",
@@ -1000,9 +1030,9 @@
         "to_si_factor": 0.001
     },
     "Q106577723": {
-        "si_name": null,
+        "si_name": "Q32744917",
         "symbol": "Np/m",
-        "to_si_factor": null
+        "to_si_factor": 1.0
     },
     "Q106589841": {
         "si_name": "Q21095810",
@@ -1079,20 +1109,10 @@
         "symbol": "Ps",
         "to_si_factor": 1000000000000000.0
     },
-    "Q106617170": {
-        "si_name": "Q102573",
-        "symbol": "mCi",
-        "to_si_factor": 37000000.0
-    },
     "Q106617198": {
         "si_name": "Q102573",
         "symbol": "μCi",
         "to_si_factor": 37000.0
-    },
-    "Q106617220": {
-        "si_name": "Q102573",
-        "symbol": "kCi",
-        "to_si_factor": 37000000000000.0
     },
     "Q106617248": {
         "si_name": "Q88768297",
@@ -1294,16 +1314,6 @@
         "symbol": "m³/m³",
         "to_si_factor": 1.0
     },
-    "Q106629979": {
-        "si_name": "Q106629974",
-        "symbol": "L/L",
-        "to_si_factor": 1.0
-    },
-    "Q106629987": {
-        "si_name": "Q106629974",
-        "symbol": "mm³/m³",
-        "to_si_factor": 1e-09
-    },
     "Q106630005": {
         "si_name": "Q182429",
         "symbol": "yd/s",
@@ -1339,10 +1349,10 @@
         "symbol": "μS/cm-1",
         "to_si_factor": 0.0001
     },
-    "Q106639711": {
-        "si_name": "Q106629974",
-        "symbol": "ml/m³",
-        "to_si_factor": 1e-06
+    "Q106639624": {
+        "si_name": "Q106639624",
+        "symbol": "m/rad",
+        "to_si_factor": 1.0
     },
     "Q106639777": {
         "si_name": "Q3332095",
@@ -1368,16 +1378,6 @@
         "si_name": "Q11570",
         "symbol": "dz",
         "to_si_factor": 100.0
-    },
-    "Q106645210": {
-        "si_name": "Q106645216",
-        "symbol": "mg/g",
-        "to_si_factor": 0.001
-    },
-    "Q106645216": {
-        "si_name": "Q106645216",
-        "symbol": "kg/kg",
-        "to_si_factor": 1.0
     },
     "Q106645232": {
         "si_name": "Q25999243",
@@ -1433,11 +1433,6 @@
         "si_name": "Q106653452",
         "symbol": "kg/(m s)",
         "to_si_factor": 1.0
-    },
-    "Q106653484": {
-        "si_name": "Q106653452",
-        "symbol": "kg/(m min)",
-        "to_si_factor": 0.0166667
     },
     "Q106680668": {
         "si_name": "Q106680668",
@@ -1649,6 +1644,11 @@
         "symbol": "mC/kg",
         "to_si_factor": 0.001
     },
+    "Q106867426": {
+        "si_name": "Q106867426",
+        "symbol": "J/m⁴",
+        "to_si_factor": 1.0
+    },
     "Q106885926": {
         "si_name": "Q26156113",
         "symbol": "N/mm",
@@ -1669,9 +1669,19 @@
         "symbol": "N/mm²",
         "to_si_factor": 1000000.0
     },
+    "Q106900091": {
+        "si_name": "Q106900091",
+        "symbol": "kg/(s³ sr)",
+        "to_si_factor": 1.0
+    },
     "Q106936862": {
         "si_name": "Q106936862",
         "symbol": "cd sr s³/(kg m²)",
+        "to_si_factor": 1.0
+    },
+    "Q106947267": {
+        "si_name": "Q106947267",
+        "symbol": "cd sr s",
         "to_si_factor": 1.0
     },
     "Q106947284": {
@@ -1698,16 +1708,6 @@
         "si_name": "Q25236",
         "symbol": "bhp",
         "to_si_factor": 745.7
-    },
-    "Q106998070": {
-        "si_name": "Q106629974",
-        "symbol": "cm³/m³",
-        "to_si_factor": 1e-06
-    },
-    "Q106998079": {
-        "si_name": "Q106629974",
-        "symbol": "dm³/m³",
-        "to_si_factor": 0.001
     },
     "Q107028266": {
         "si_name": "Q44395",
@@ -1744,10 +1744,10 @@
         "symbol": "mL/h",
         "to_si_factor": 2.77778e-10
     },
-    "Q107028522": {
-        "si_name": "Q106645216",
-        "symbol": "μg/hg",
-        "to_si_factor": 1e-08
+    "Q107028673": {
+        "si_name": "Q107028673",
+        "symbol": "K⁻¹",
+        "to_si_factor": 1.0
     },
     "Q107028836": {
         "si_name": "Q107028673",
@@ -1788,6 +1788,11 @@
         "si_name": "Q107096193",
         "symbol": "s³ A²/(kg mol)",
         "to_si_factor": 1.0
+    },
+    "Q10711818": {
+        "si_name": "Q104628312",
+        "symbol": "var h",
+        "to_si_factor": 3600.0
     },
     "Q107133620": {
         "si_name": "Q25377184",
@@ -1969,21 +1974,6 @@
         "symbol": "kg/(s² A)",
         "to_si_factor": 1.0
     },
-    "Q107313731": {
-        "si_name": "Q106645216",
-        "symbol": "μg/kg",
-        "to_si_factor": 1e-09
-    },
-    "Q107313738": {
-        "si_name": "Q106645216",
-        "symbol": "ng/kg",
-        "to_si_factor": 1e-12
-    },
-    "Q107313750": {
-        "si_name": "Q106645216",
-        "symbol": "lb/lb",
-        "to_si_factor": 1.0
-    },
     "Q107313770": {
         "si_name": "Q794261",
         "symbol": "m³/h",
@@ -2038,6 +2028,11 @@
         "si_name": "Q80374519",
         "symbol": "J/cm²",
         "to_si_factor": 10000.0
+    },
+    "Q107361110": {
+        "si_name": "Q910311",
+        "symbol": "lm h",
+        "to_si_factor": 3600.0
     },
     "Q107361126": {
         "si_name": "Q281096",
@@ -2145,17 +2140,17 @@
         "to_si_factor": 0.5424919
     },
     "Q107410794": {
-        "si_name": "Q106653452",
+        "si_name": "Q21016931",
         "symbol": "kg/(m d)",
-        "to_si_factor": 1.15741e-05
+        "to_si_factor": 1.1574074074074073e-05
     },
     "Q107410795": {
-        "si_name": "Q106653452",
+        "si_name": "Q21016931",
         "symbol": "kg/(m h)",
-        "to_si_factor": 0.000277778
+        "to_si_factor": 0.0002777777777777778
     },
     "Q107410801": {
-        "si_name": "Q106653452",
+        "si_name": "Q21016931",
         "symbol": "g/(cm s)",
         "to_si_factor": 0.1
     },
@@ -2199,26 +2194,6 @@
         "symbol": "kmol/kg",
         "to_si_factor": 1000.0
     },
-    "Q107440839": {
-        "si_name": "Q106645216",
-        "symbol": "g/g",
-        "to_si_factor": 1.0
-    },
-    "Q107440910": {
-        "si_name": "Q106645216",
-        "symbol": "g/hg",
-        "to_si_factor": 0.01
-    },
-    "Q107441004": {
-        "si_name": "Q106645216",
-        "symbol": "mg/hg",
-        "to_si_factor": 1e-05
-    },
-    "Q107460729": {
-        "si_name": "Q106629974",
-        "symbol": "mm³/mm³",
-        "to_si_factor": 1.0
-    },
     "Q107460790": {
         "si_name": "Q101515303",
         "symbol": "kg/GJ",
@@ -2257,6 +2232,11 @@
     "Q107461119": {
         "si_name": "Q92011107",
         "symbol": "μg/(m² s)",
+        "to_si_factor": 1e-09
+    },
+    "Q107461139": {
+        "si_name": "Q101515303",
+        "symbol": "μg/J",
         "to_si_factor": 1e-09
     },
     "Q107461146": {
@@ -2299,6 +2279,11 @@
         "symbol": "b/sr",
         "to_si_factor": 1e-28
     },
+    "Q107611199": {
+        "si_name": "Q98267267",
+        "symbol": "cm²/erg",
+        "to_si_factor": 1000.0
+    },
     "Q107611254": {
         "si_name": "Q98269780",
         "symbol": "b/(sr eV)",
@@ -2328,11 +2313,6 @@
         "si_name": "Q69423273",
         "symbol": "kJ/(kg K)",
         "to_si_factor": 1000.0
-    },
-    "Q108888186": {
-        "si_name": "Q11570",
-        "symbol": "eV/c²",
-        "to_si_factor": 1.782661921627898e-36
     },
     "Q108888198": {
         "si_name": "Q11570",
@@ -2379,6 +2359,11 @@
         "symbol": "e.u.",
         "to_si_factor": 4.184
     },
+    "Q1098949": {
+        "si_name": "Q21393312",
+        "symbol": "Cl",
+        "to_si_factor": 4.184
+    },
     "Q110143852": {
         "si_name": "Q1441459",
         "symbol": "Ω cm",
@@ -2423,6 +2408,11 @@
         "si_name": "Q11570",
         "symbol": "st",
         "to_si_factor": 6.35029318
+    },
+    "Q113446857": {
+        "si_name": "Q61992237",
+        "symbol": "GCPD",
+        "to_si_factor": 4.0
     },
     "Q113681609": {
         "si_name": "Q794261",
@@ -2509,6 +2499,11 @@
         "symbol": "m⁻¹",
         "to_si_factor": 1.0
     },
+    "Q11547252": {
+        "si_name": "Q11547252",
+        "symbol": "m⁻²",
+        "to_si_factor": 1.0
+    },
     "Q115533751": {
         "si_name": "Q11573",
         "symbol": "rm",
@@ -2539,6 +2534,11 @@
         "symbol": "m",
         "to_si_factor": 1.0
     },
+    "Q11574": {
+        "si_name": "Q11574",
+        "symbol": "s",
+        "to_si_factor": 1.0
+    },
     "Q11579": {
         "si_name": "Q11579",
         "symbol": "K",
@@ -2563,6 +2563,11 @@
         "si_name": "Q33680",
         "symbol": "ʰ",
         "to_si_factor": 0.2617993878
+    },
+    "Q1165639": {
+        "si_name": "Q89992008",
+        "symbol": "daraf",
+        "to_si_factor": 1.0
     },
     "Q1165799": {
         "si_name": "Q11573",
@@ -2763,6 +2768,11 @@
         "si_name": "Q121981098",
         "symbol": "m²/m²",
         "to_si_factor": 1.0
+    },
+    "Q1220483": {
+        "si_name": "Q35852",
+        "symbol": "ftm²",
+        "to_si_factor": 0.0003596651
     },
     "Q12257695": {
         "si_name": null,
@@ -3074,7 +3084,7 @@
         "symbol": "GeV",
         "to_si_factor": 1.602176634e-10
     },
-    "Q12874593": {
+    "Q12831618": {
         "si_name": "Q25269",
         "symbol": "W h",
         "to_si_factor": 3600.0
@@ -3104,10 +3114,45 @@
         "symbol": "cal",
         "to_si_factor": 4.184
     },
+    "Q131048133": {
+        "si_name": "Q190095",
+        "symbol": "RGy",
+        "to_si_factor": 1e+27
+    },
     "Q131255": {
         "si_name": "Q131255",
         "symbol": "F",
         "to_si_factor": 1.0
+    },
+    "Q131376626": {
+        "si_name": "Q39369",
+        "symbol": "RHz",
+        "to_si_factor": 1e+27
+    },
+    "Q131376639": {
+        "si_name": "Q39369",
+        "symbol": "QHz",
+        "to_si_factor": 1e+30
+    },
+    "Q131376652": {
+        "si_name": "Q39369",
+        "symbol": "rHz",
+        "to_si_factor": 1e-27
+    },
+    "Q131376658": {
+        "si_name": "Q39369",
+        "symbol": "qHz",
+        "to_si_factor": 1e-30
+    },
+    "Q131395783": {
+        "si_name": null,
+        "symbol": "Rib",
+        "to_si_factor": null
+    },
+    "Q131395793": {
+        "si_name": null,
+        "symbol": "Qib",
+        "to_si_factor": null
     },
     "Q13147228": {
         "si_name": "Q844211",
@@ -3118,6 +3163,21 @@
         "si_name": null,
         "symbol": "₿",
         "to_si_factor": null
+    },
+    "Q131824443": {
+        "si_name": "Q12438",
+        "symbol": "tf",
+        "to_si_factor": 9806.65
+    },
+    "Q131824444": {
+        "si_name": "Q12438",
+        "symbol": "LTf",
+        "to_si_factor": 9964.01641818352
+    },
+    "Q131824445": {
+        "si_name": "Q12438",
+        "symbol": "STf",
+        "to_si_factor": 8896.443230521
     },
     "Q1322380": {
         "si_name": "Q11574",
@@ -3137,6 +3197,16 @@
     "Q132643": {
         "si_name": null,
         "symbol": "kr",
+        "to_si_factor": null
+    },
+    "Q133294594": {
+        "si_name": null,
+        "symbol": "MPa m^(1/2)",
+        "to_si_factor": null
+    },
+    "Q133294676": {
+        "si_name": null,
+        "symbol": "1/K",
         "to_si_factor": null
     },
     "Q13400897": {
@@ -3159,20 +3229,55 @@
         "symbol": "Pib",
         "to_si_factor": null
     },
+    "Q135415097": {
+        "si_name": "Q25236",
+        "symbol": "shp",
+        "to_si_factor": 745.69987
+    },
     "Q13542672": {
-        "si_name": null,
+        "si_name": "Q25269",
         "symbol": "Ry",
-        "to_si_factor": null
+        "to_si_factor": 2.1798723611035e-18
     },
     "Q13548586": {
         "si_name": "Q39369",
         "symbol": "THz",
         "to_si_factor": 1000000000000.0
     },
+    "Q135650886": {
+        "si_name": null,
+        "symbol": "TW a",
+        "to_si_factor": null
+    },
+    "Q135651572": {
+        "si_name": null,
+        "symbol": "W a",
+        "to_si_factor": null
+    },
+    "Q135654340": {
+        "si_name": null,
+        "symbol": "mW a",
+        "to_si_factor": null
+    },
+    "Q135654410": {
+        "si_name": null,
+        "symbol": "MW a",
+        "to_si_factor": null
+    },
+    "Q135657035": {
+        "si_name": null,
+        "symbol": "GW a",
+        "to_si_factor": null
+    },
     "Q13582667": {
         "si_name": "Q44395",
         "symbol": "kgf/cm²",
         "to_si_factor": 98066.5
+    },
+    "Q136039973": {
+        "si_name": null,
+        "symbol": "FPS",
+        "to_si_factor": null
     },
     "Q1361854": {
         "si_name": "Q11570",
@@ -3183,6 +3288,21 @@
         "si_name": "Q11570",
         "symbol": "slug",
         "to_si_factor": 14.593903
+    },
+    "Q136416965": {
+        "si_name": null,
+        "symbol": "GT/S",
+        "to_si_factor": null
+    },
+    "Q136417074": {
+        "si_name": null,
+        "symbol": "MT/S",
+        "to_si_factor": null
+    },
+    "Q136718229": {
+        "si_name": null,
+        "symbol": "MtCO₂e",
+        "to_si_factor": null
     },
     "Q1374438": {
         "si_name": "Q11574",
@@ -3349,13 +3469,13 @@
         "symbol": "hp",
         "to_si_factor": 735.49875
     },
-    "Q162525": {
-        "si_name": null,
-        "symbol": "°E",
-        "to_si_factor": null
+    "Q16120790": {
+        "si_name": "Q25406",
+        "symbol": "μC",
+        "to_si_factor": 1e-06
     },
     "Q1628990": {
-        "si_name": "Q12874593",
+        "si_name": "Q12831618",
         "symbol": "hph",
         "to_si_factor": 745.7
     },
@@ -3389,6 +3509,16 @@
         "symbol": "IRE",
         "to_si_factor": 0.007
     },
+    "Q16673974": {
+        "si_name": null,
+        "symbol": "£M",
+        "to_si_factor": null
+    },
+    "Q16683188": {
+        "si_name": "Q16683188",
+        "symbol": "W/sr",
+        "to_si_factor": 1.0
+    },
     "Q16859309": {
         "si_name": "Q215571",
         "symbol": "lb ft",
@@ -3414,20 +3544,15 @@
         "symbol": "J s",
         "to_si_factor": 1.0
     },
-    "Q17143051": {
-        "si_name": "Q12438",
-        "symbol": "Tf",
-        "to_si_factor": 9806.65
+    "Q17192238": {
+        "si_name": "Q6137407",
+        "symbol": "r/sec",
+        "to_si_factor": 1.0
     },
     "Q17255465": {
         "si_name": "Q25517",
         "symbol": "v_P",
         "to_si_factor": 4.222e-105
-    },
-    "Q173117": {
-        "si_name": null,
-        "symbol": "R$",
-        "to_si_factor": null
     },
     "Q1741429": {
         "si_name": "Q215571",
@@ -3596,7 +3721,7 @@
     },
     "Q191118": {
         "si_name": "Q11570",
-        "symbol": "t",
+        "symbol": "MT",
         "to_si_factor": 1000.0
     },
     "Q1913097": {
@@ -3689,11 +3814,6 @@
         "symbol": "LL",
         "to_si_factor": null
     },
-    "Q201933": {
-        "si_name": "Q12438",
-        "symbol": "dyn",
-        "to_si_factor": 1e-05
-    },
     "Q2029156": {
         "si_name": "Q25269",
         "symbol": "quad",
@@ -3720,9 +3840,9 @@
         "to_si_factor": 3600000000000.0
     },
     "Q2055118": {
-        "si_name": null,
+        "si_name": "Q199",
         "symbol": "ppb",
-        "to_si_factor": null
+        "to_si_factor": 1e-09
     },
     "Q2064166": {
         "si_name": "Q179836",
@@ -3753,11 +3873,6 @@
         "si_name": null,
         "symbol": "Ma",
         "to_si_factor": null
-    },
-    "Q2080811": {
-        "si_name": "Q199",
-        "symbol": "vol%",
-        "to_si_factor": 0.01
     },
     "Q208526": {
         "si_name": null,
@@ -3805,9 +3920,9 @@
         "to_si_factor": 1.0
     },
     "Q21006887": {
-        "si_name": null,
+        "si_name": "Q199",
         "symbol": "ppm",
-        "to_si_factor": null
+        "to_si_factor": 1e-06
     },
     "Q2100949": {
         "si_name": "Q21016931",
@@ -3833,11 +3948,6 @@
         "si_name": null,
         "symbol": "B/.",
         "to_si_factor": null
-    },
-    "Q21061369": {
-        "si_name": "Q199",
-        "symbol": "g/kg",
-        "to_si_factor": 0.001
     },
     "Q21062777": {
         "si_name": "Q44395",
@@ -3868,11 +3978,6 @@
         "si_name": "Q21088638",
         "symbol": "J/T",
         "to_si_factor": 1.0
-    },
-    "Q21091747": {
-        "si_name": "Q199",
-        "symbol": "mg/kg",
-        "to_si_factor": 1e-06
     },
     "Q21095810": {
         "si_name": "Q21095810",
@@ -3934,6 +4039,11 @@
         "symbol": "J/K",
         "to_si_factor": 1.0
     },
+    "Q21401573": {
+        "si_name": "Q21401573",
+        "symbol": "m⁻³",
+        "to_si_factor": 1.0
+    },
     "Q2140397": {
         "si_name": "Q25517",
         "symbol": "in³",
@@ -3953,6 +4063,11 @@
         "si_name": "Q190095",
         "symbol": "rep",
         "to_si_factor": 0.0093
+    },
+    "Q2147412": {
+        "si_name": "Q100293463",
+        "symbol": "rhe",
+        "to_si_factor": 10.0
     },
     "Q21489891": {
         "si_name": "Q25517",
@@ -4040,9 +4155,9 @@
         "to_si_factor": 1e-12
     },
     "Q2221356": {
-        "si_name": null,
+        "si_name": "Q25269",
         "symbol": "mW h",
-        "to_si_factor": null
+        "to_si_factor": 3.6
     },
     "Q2232211": {
         "si_name": "Q25250",
@@ -4113,11 +4228,6 @@
         "si_name": "Q102573",
         "symbol": "St",
         "to_si_factor": 13450.0
-    },
-    "Q235729": {
-        "si_name": "Q11574",
-        "symbol": "y (365 days)",
-        "to_si_factor": 31536000.0
     },
     "Q23823681": {
         "si_name": "Q25236",
@@ -4279,6 +4389,11 @@
         "symbol": "m²",
         "to_si_factor": 1.0
     },
+    "Q25376902": {
+        "si_name": null,
+        "symbol": "Mbp",
+        "to_si_factor": null
+    },
     "Q25377184": {
         "si_name": "Q25377184",
         "symbol": "kg/m²",
@@ -4344,6 +4459,36 @@
         "symbol": "statF",
         "to_si_factor": 1.1126500560536185e-12
     },
+    "Q25668610": {
+        "si_name": "Q102573",
+        "symbol": "mCi",
+        "to_si_factor": 37000000.0
+    },
+    "Q25668611": {
+        "si_name": "Q102573",
+        "symbol": "kCi",
+        "to_si_factor": 37000000000000.0
+    },
+    "Q25668612": {
+        "si_name": "Q47083",
+        "symbol": "kΩ",
+        "to_si_factor": 1000.0
+    },
+    "Q25668613": {
+        "si_name": "Q47083",
+        "symbol": "MΩ",
+        "to_si_factor": 1000000.0
+    },
+    "Q25668616": {
+        "si_name": "Q25269",
+        "symbol": "kcal",
+        "to_si_factor": 4184.0
+    },
+    "Q25668620": {
+        "si_name": "Q44395",
+        "symbol": "kbar",
+        "to_si_factor": 100000000.0
+    },
     "Q259502": {
         "si_name": null,
         "symbol": "A$",
@@ -4399,11 +4544,6 @@
         "symbol": "mm²/s",
         "to_si_factor": 1e-06
     },
-    "Q26162557": {
-        "si_name": "Q21016931",
-        "symbol": "cP",
-        "to_si_factor": 0.001
-    },
     "Q26162587": {
         "si_name": "Q21016931",
         "symbol": "μPa s",
@@ -4448,11 +4588,6 @@
         "si_name": null,
         "symbol": "₶",
         "to_si_factor": null
-    },
-    "Q26708069": {
-        "si_name": "Q25269",
-        "symbol": "kcal",
-        "to_si_factor": 4184.0
     },
     "Q267391": {
         "si_name": "Q11547251",
@@ -4515,9 +4650,9 @@
         "to_si_factor": 1e-12
     },
     "Q2757753": {
-        "si_name": null,
+        "si_name": "Q25269",
         "symbol": "PW h",
-        "to_si_factor": null
+        "to_si_factor": 3.6e+18
     },
     "Q2762458": {
         "si_name": "Q11574",
@@ -4536,7 +4671,7 @@
     },
     "Q27864215": {
         "si_name": "Q25269",
-        "symbol": "μW h",
+        "symbol": "µW hr",
         "to_si_factor": 0.0036
     },
     "Q2793566": {
@@ -4562,6 +4697,11 @@
     "Q28232349": {
         "si_name": null,
         "symbol": "msw",
+        "to_si_factor": null
+    },
+    "Q284100": {
+        "si_name": null,
+        "symbol": "cM",
         "to_si_factor": null
     },
     "Q2844477": {
@@ -4890,9 +5030,9 @@
         "to_si_factor": 1e-21
     },
     "Q32744917": {
-        "si_name": null,
+        "si_name": "Q32744917",
         "symbol": "Np/s",
-        "to_si_factor": null
+        "to_si_factor": 1.0
     },
     "Q32750621": {
         "si_name": "Q25517",
@@ -5074,11 +5214,6 @@
         "symbol": "Kib",
         "to_si_factor": null
     },
-    "Q3833309": {
-        "si_name": null,
-        "symbol": "£",
-        "to_si_factor": null
-    },
     "Q3858002": {
         "si_name": "Q25406",
         "symbol": "mA⋅h",
@@ -5249,6 +5384,11 @@
         "symbol": "km³",
         "to_si_factor": 1000000000.0
     },
+    "Q4313172": {
+        "si_name": null,
+        "symbol": "nhp",
+        "to_si_factor": null
+    },
     "Q4406": {
         "si_name": null,
         "symbol": "$T",
@@ -5284,6 +5424,11 @@
         "symbol": "$",
         "to_si_factor": null
     },
+    "Q4598": {
+        "si_name": null,
+        "symbol": "UGX",
+        "to_si_factor": null
+    },
     "Q4667368": {
         "si_name": "Q163354",
         "symbol": "abH",
@@ -5299,20 +5444,15 @@
         "symbol": "T",
         "to_si_factor": 907.18474
     },
-    "Q47083": {
-        "si_name": "Q47083",
-        "symbol": "Ω",
-        "to_si_factor": 1.0
+    "Q4741": {
+        "si_name": null,
+        "symbol": "RF",
+        "to_si_factor": null
     },
     "Q474533": {
         "si_name": null,
         "symbol": "At",
         "to_si_factor": null
-    },
-    "Q476572": {
-        "si_name": "Q25269",
-        "symbol": "Ha",
-        "to_si_factor": 4.35974434e-18
     },
     "Q48013": {
         "si_name": "Q11570",
@@ -6130,9 +6270,9 @@
         "to_si_factor": 1.0
     },
     "Q56025776": {
-        "si_name": null,
+        "si_name": "Q107028673",
         "symbol": "μm/(m K)",
-        "to_si_factor": null
+        "to_si_factor": 1e-06
     },
     "Q56156859": {
         "si_name": "Q41509",
@@ -6163,11 +6303,6 @@
         "si_name": "Q794261",
         "symbol": "Q_P",
         "to_si_factor": 7.83e-62
-    },
-    "Q56318907": {
-        "si_name": "Q44395",
-        "symbol": "kbar",
-        "to_si_factor": 100000000.0
     },
     "Q56349362": {
         "si_name": null,
@@ -6202,11 +6337,6 @@
     "Q57084921": {
         "si_name": null,
         "symbol": "gCO2eq",
-        "to_si_factor": null
-    },
-    "Q57084968": {
-        "si_name": null,
-        "symbol": "kg CO2eq/kg",
         "to_si_factor": null
     },
     "Q5711255": {
@@ -6245,9 +6375,9 @@
         "to_si_factor": 86400.0
     },
     "Q577": {
-        "si_name": null,
+        "si_name": "Q11574",
         "symbol": "a",
-        "to_si_factor": null
+        "to_si_factor": 31557600.0
     },
     "Q57899268": {
         "si_name": "Q3332095",
@@ -6290,7 +6420,7 @@
         "to_si_factor": null
     },
     "Q605704": {
-        "si_name": "Q199",
+        "si_name": "Q1618549",
         "symbol": "doz",
         "to_si_factor": 12.0
     },
@@ -6525,14 +6655,14 @@
         "to_si_factor": null
     },
     "Q68725821": {
-        "si_name": null,
+        "si_name": "Q11579",
         "symbol": "°Rø",
-        "to_si_factor": null
+        "to_si_factor": 1.90476190476
     },
     "Q68726230": {
-        "si_name": null,
+        "si_name": "Q11579",
         "symbol": "°De",
-        "to_si_factor": null
+        "to_si_factor": 0.66667
     },
     "Q68726625": {
         "si_name": null,
@@ -6542,16 +6672,6 @@
     "Q68975544": {
         "si_name": "Q68975544",
         "symbol": "J/K",
-        "to_si_factor": 1.0
-    },
-    "Q69362731": {
-        "si_name": "Q69363953",
-        "symbol": "°C",
-        "to_si_factor": 1.0
-    },
-    "Q69363953": {
-        "si_name": "Q69363953",
-        "symbol": "K",
         "to_si_factor": 1.0
     },
     "Q693944": {
@@ -6582,6 +6702,11 @@
     "Q69428896": {
         "si_name": "Q69428896",
         "symbol": "Gy/s",
+        "to_si_factor": 1.0
+    },
+    "Q69429226": {
+        "si_name": "Q69429226",
+        "symbol": "W/(m² sr)",
         "to_si_factor": 1.0
     },
     "Q6982035": {
@@ -7089,6 +7214,11 @@
         "symbol": "J/nm",
         "to_si_factor": 1000000000.0
     },
+    "Q80373219": {
+        "si_name": "Q106867426",
+        "symbol": "J/(m³ nm)",
+        "to_si_factor": 1000000000.0
+    },
     "Q80374519": {
         "si_name": "Q80374519",
         "symbol": "J/m²",
@@ -7157,7 +7287,7 @@
     "Q83327": {
         "si_name": "Q25269",
         "symbol": "eV",
-        "to_si_factor": 1.60217656535e-19
+        "to_si_factor": 1.602176634e-19
     },
     "Q83386886": {
         "si_name": "Q83386886",
@@ -7173,6 +7303,11 @@
         "si_name": null,
         "symbol": "IU",
         "to_si_factor": null
+    },
+    "Q83620455": {
+        "si_name": "Q83620455",
+        "symbol": "lx s",
+        "to_si_factor": 1.0
     },
     "Q836941": {
         "si_name": null,
@@ -7294,16 +7429,6 @@
         "symbol": "Pa s/m",
         "to_si_factor": 1.0
     },
-    "Q87262709": {
-        "si_name": "Q47083",
-        "symbol": "kΩ",
-        "to_si_factor": 1000.0
-    },
-    "Q87416053": {
-        "si_name": "Q47083",
-        "symbol": "MΩ",
-        "to_si_factor": 1000000.0
-    },
     "Q87546229": {
         "si_name": "Q86897783",
         "symbol": "μPa² s",
@@ -7344,15 +7469,15 @@
         "symbol": "bu (UK)",
         "to_si_factor": 0.03636872
     },
-    "Q896543": {
-        "si_name": null,
-        "symbol": "Gya",
-        "to_si_factor": null
-    },
     "Q89662131": {
         "si_name": "Q25517",
         "symbol": "pt (UK)",
         "to_si_factor": 0.00056826125
+    },
+    "Q89992008": {
+        "si_name": "Q89992008",
+        "symbol": "F⁻¹",
+        "to_si_factor": 1.0
     },
     "Q901448": {
         "si_name": null,
@@ -7403,6 +7528,11 @@
         "si_name": "Q44395",
         "symbol": "at",
         "to_si_factor": 98066.5
+    },
+    "Q910311": {
+        "si_name": "Q910311",
+        "symbol": "lm s",
+        "to_si_factor": 1.0
     },
     "Q911730": {
         "si_name": "Q179836",
@@ -7733,11 +7863,6 @@
         "si_name": "Q25406",
         "symbol": "TC",
         "to_si_factor": 1000000000000.0
-    },
-    "Q94634684": {
-        "si_name": "Q25406",
-        "symbol": "μC",
-        "to_si_factor": 1e-06
     },
     "Q94634699": {
         "si_name": "Q25406",
@@ -8899,6 +9024,11 @@
         "symbol": "M°C",
         "to_si_factor": null
     },
+    "Q96192470": {
+        "si_name": "Q96192470",
+        "symbol": "W/m",
+        "to_si_factor": 1.0
+    },
     "Q96236286": {
         "si_name": null,
         "symbol": "G°C",
@@ -8989,6 +9119,11 @@
         "symbol": "m²/sr",
         "to_si_factor": 1.0
     },
+    "Q98267267": {
+        "si_name": "Q98267267",
+        "symbol": "m²/J",
+        "to_si_factor": 1.0
+    },
     "Q98269780": {
         "si_name": "Q98269780",
         "symbol": "m²/(sr J)",
@@ -8997,7 +9132,12 @@
     "Q98492214": {
         "si_name": "Q25999243",
         "symbol": "den",
-        "to_si_factor": 1.111e-07
+        "to_si_factor": 1.1111111111111111e-07
+    },
+    "Q98538634": {
+        "si_name": "Q80374519",
+        "symbol": "eV/m²",
+        "to_si_factor": 1.60218e-19
     },
     "Q98642859": {
         "si_name": "Q98643033",

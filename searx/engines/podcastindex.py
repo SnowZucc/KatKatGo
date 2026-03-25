@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-"""Podcast Index
-"""
+"""Podcast Index"""
 
 from urllib.parse import quote_plus
 from datetime import datetime
@@ -34,7 +33,7 @@ def response(resp):
                 'title': result['title'],
                 'content': result['description'],
                 'thumbnail': result['image'],
-                'publishedDate': datetime.utcfromtimestamp(result['newestItemPubdate']),
+                'publishedDate': datetime.fromtimestamp(result['newestItemPubdate']),
                 'metadata': f"{result['author']}, {result['episodeCount']} episodes",
             }
         )
