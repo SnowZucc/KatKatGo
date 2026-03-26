@@ -1,7 +1,7 @@
 .. figure:: https://i.ibb.co/HqQq43j/katkatgo3-min.png
    :target: https://katkatgo.fr
    :alt: KatKatGo
-   :width: 512px
+   :width: 256px
 
 KatKatGo is a group of SearXNG instance hosted in Europe. It includes : 
 - Optimized selection of prodiders to provide the best search results
