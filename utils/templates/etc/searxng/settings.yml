@@ -1,36 +1,54 @@
-# SearXNG settings
+# KatKatGo's SearXNG settings
 
 use_default_settings: true
 
 general:
   debug: false
-  instance_name: "SearXNG"
+  instance_name: "KatKatGo SearX"
+#  privacypolicy_url: http://privacy.katkatgo.fr
+  donation_url: https://www.patreon.com/KatKatGo/membership
+  contact_url: mailto:snowzucc@katkatgo.fr?subject=KatKatGo
+
+brand:
+  issue_url: https://github.com/SnowZucc/KatKatGo/issues
+  custom:
+    links:
+      Uptime: https://stats.uptimerobot.com/g9A2LhPxR1
 
 search:
-  safe_search: 2
-  autocomplete: 'duckduckgo'
+  safe_search: 1
+  autocomplete: 'google'
+  autocomplete_min: 1
+  default_lang: "fr"
   formats:
     - html
 
 server:
   # Is overwritten by ${SEARXNG_SECRET}
-  secret_key: "ultrasecretkey"
+  secret_key: "auuuuuuuuuughfheu53535326463GT43TYG34tfgehng464TF"
   limiter: true
   image_proxy: true
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_BASE_URL}.
-  # base_url: http://example.com/location
+  base_url: https://katkatgo.fr
 
 valkey:
   # URL to connect valkey database. Is overwritten by ${SEARXNG_VALKEY_URL}.
   url: valkey://localhost:6379/0
 
-# preferences:
+ui:
+  infinite_scroll: true
+  default_locale: "fr"
+  theme_args:
+    # style of simple theme: auto, light, dark
+    simple_style: dark
+
+#preferences:
 #   lock:
 #     - autocomplete
 #     - method
 
-# engines:
+engines:
 #
 #   - name: fdroid
 #     disabled: false
@@ -39,5 +57,19 @@ valkey:
 #     disabled: false
 #
 #   - name: mediathekviewweb
-#     categories: TV
+#    categories: TV
 #     disabled: false
+  - name: bing
+    disabled: true
+
+  - name: wikidata
+    disabled: true
+
+  - name: aol
+    disabled: true
+
+  - name: startpage
+    disabled: true
+
+  - name: qwant
+    disabled: false

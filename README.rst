@@ -1,3 +1,15 @@
+.. figure:: https://i.ibb.co/HqQq43j/katkatgo3-min.png
+   :target: https://katkatgo.fr
+   :alt: KatKatGo
+   :width: 512px
+
+KatKatGo is a group of SearXNG instance hosted in Europe. It includes : 
+- Optimized selection of prodiders to provide the best search results
+- Load balancing between 2-3 servers with HAProxy
+
+What is SearXNG ?
+=====
+
 .. SPDX-License-Identifier: AGPL-3.0-or-later
 
 .. _metasearch engine: https://en.wikipedia.org/wiki/Metasearch_engine
@@ -10,7 +22,6 @@
    :target: https://searxng.org
    :alt: SearXNG
    :width: 512px
-
 
 SearXNG is a `metasearch engine`_. Users are neither tracked nor profiled.
 
