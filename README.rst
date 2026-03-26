@@ -3,7 +3,8 @@
    :alt: KatKatGo
    :width: 256px
 
-KatKatGo is a group of SearXNG instance hosted in Europe. It includes : 
+KatKatGo is a group of SearXNG instance hosted in Europe. It includes :
+
 - Optimized selection of prodiders to provide the best search results
 - Load balancing between 2-3 servers with HAProxy
 
