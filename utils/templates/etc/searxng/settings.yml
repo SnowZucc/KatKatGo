@@ -73,3 +73,9 @@ engines:
 
   - name: qwant
     disabled: false
+
+  - name: devicons
+    disabled: true
+
+  - name: lucide
+    disabled: true
