@@ -26,10 +26,11 @@ about = {
 # engine dependent config
 categories = ["videos", "web"]
 paging = True
+enable_http3 = True
 safesearch = True
 time_range_support = True
 
-base_url = "https://www.bing.com/videos/asyncv2"
+base_url = "https://www.bing.com"
 """Bing-Video search URL"""
 
 
@@ -60,7 +61,7 @@ def request(query, params):
         query_params["form"] = "VRFLTR"
         query_params["qft"] = " filterui:videoage-lt%s" % time_map[params["time_range"]]
 
-    params["url"] = base_url + "?" + urlencode(query_params)
+    params["url"] = base_url + "/videos/asyncv2?" + urlencode(query_params)
 
     return params
 

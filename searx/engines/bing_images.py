@@ -25,6 +25,7 @@ about = {
 # engine dependent config
 categories = ["images", "web"]
 paging = True
+enable_http3 = True
 safesearch = True
 time_range_support = True
 time_map = {
@@ -34,7 +35,7 @@ time_map = {
     "year": 60 * 24 * 365,
 }
 
-base_url = "https://www.bing.com/images/async"
+base_url = "https://www.bing.com"
 """Bing-Image search URL"""
 
 
@@ -64,9 +65,7 @@ def request(query, params):
     if params["time_range"]:
         query_params["qft"] = "filterui:age-lt%s" % time_map[params["time_range"]]
 
-    params["url"] = base_url + "?" + urlencode(query_params)
-
-    return params
+    params["url"] = base_url + "/images/async?" + urlencode(query_params)
 
 
 def response(resp):

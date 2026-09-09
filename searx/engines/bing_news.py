@@ -33,6 +33,7 @@ categories = ["news"]
 paging = True
 """If go through the pages and there are actually no new results for another
 page, then bing returns the results from the last page again."""
+enable_http3 = True
 
 time_range_support = True
 time_map = {
@@ -44,7 +45,7 @@ time_map = {
 difference of *last day* and *last week* in the result list is just marginally.
 Bing does not have news range ``year`` / we use ``month`` instead."""
 
-base_url = "https://www.bing.com/news/infinitescrollajax"
+base_url = "https://www.bing.com"
 """Bing (News) search URL"""
 
 
@@ -74,9 +75,7 @@ def request(query, params):
     if params["time_range"]:
         query_params["qft"] = time_map.get(params["time_range"], 'interval="9"')
 
-    params["url"] = base_url + "?" + urlencode(query_params)
-
-    return params
+    params["url"] = base_url + "/news/infinitescrollajax?" + urlencode(query_params)
 
 
 def response(resp):

@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Mojeek (general, images, news)"""
 
+import typing as t
 from datetime import datetime
 from urllib.parse import urlencode
 
@@ -20,6 +21,7 @@ about = {
 }
 paging = True  # paging is only supported for general search
 safesearch = True
+language_support = True
 time_range_support = True  # time range search is supported for general and news
 max_page = 10
 
@@ -50,7 +52,7 @@ region_param = "arc"
 _delta_kwargs = {"day": "days", "week": "weeks", "month": "months", "year": "years"}
 
 
-def init(_):
+def setup(_: dict[str, t.Any]) -> bool | None:
     if search_type not in ("", "images", "news"):
         raise ValueError(f"Invalid search type {search_type}")
 
@@ -59,8 +61,6 @@ def request(query, params):
     args = {
         "q": query,
         "safe": min(params["safesearch"], 1),
-        language_param: traits.get_language(params["searxng_locale"], traits.custom["language_all"]),
-        region_param: traits.get_region(params["searxng_locale"], traits.custom["region_all"]),
     }
 
     if search_type:
@@ -76,6 +76,10 @@ def request(query, params):
         logger.debug(args["since"])
 
     params["url"] = f"{base_url}/search?{urlencode(args)}"
+    params["cookies"] = {
+        language_param: traits.get_language(params["searxng_locale"], traits.custom["language_all"]),
+        region_param: traits.get_region(params["searxng_locale"], traits.custom["region_all"]),
+    }
 
     return params
 

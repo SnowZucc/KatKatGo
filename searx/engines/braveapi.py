@@ -31,6 +31,7 @@ from dateutil import parser
 
 from searx.exceptions import SearxEngineAPIException
 from searx.result_types import EngineResults
+from searx.utils import html_to_text
 
 if t.TYPE_CHECKING:
     from searx.extended_types import SXNG_Response
@@ -39,7 +40,7 @@ if t.TYPE_CHECKING:
 about = {
     "website": "https://api.search.brave.com/",
     "wikidata_id": None,
-    "official_api_documentation": "https://api-dashboard.search.brave.com/documentation",
+    "official_api_documentation": "https://api-dashboard.search.brave.com/api-reference/web/search/get",
     "use_official_api": True,
     "require_api_key": True,
     "results": "JSON",
@@ -62,8 +63,10 @@ base_url = "https://api.search.brave.com/res/v1/web/search"
 time_range_map = {"day": "past_day", "week": "past_week", "month": "past_month", "year": "past_year"}
 """Mapping of SearXNG time ranges to Brave API time ranges."""
 
+max_page = 10
 
-def init(_):
+
+def setup(_: dict[str, t.Any]) -> bool | None:
     """Initialize the engine."""
     if not api_key:
         raise SearxEngineAPIException("No API key provided")
@@ -74,7 +77,8 @@ def request(query: str, params: "OnlineParams") -> None:
     search_args: dict[str, str | int | None] = {
         "q": query,
         "count": results_per_page,
-        "offset": (params["pageno"] - 1) * results_per_page,
+        "offset": params["pageno"] - 1,
+        "text_decorations": False,
     }
 
     # Apply time filter if specified
@@ -87,6 +91,7 @@ def request(query: str, params: "OnlineParams") -> None:
 
     params["url"] = f"{base_url}?{urlencode(search_args)}"
     params["headers"]["X-Subscription-Token"] = api_key
+    params["headers"]["Accept"] = "application/json"
 
 
 def _extract_published_date(published_date_raw: str):
@@ -112,14 +117,19 @@ def response(resp: "SXNG_Response") -> EngineResults:
     res = EngineResults()
     data = resp.json()
 
-    for result in data.get("web", {}).get("results", []):
+    for result in (data.get("web") or {}).get("results", []):
+        thumbnail_obj = result.get("thumbnail")
+        thumbnail = ""
+        if thumbnail_obj and not thumbnail_obj.get("logo", False):
+            thumbnail = thumbnail_obj.get("src") or ""
+
         res.add(
             res.types.MainResult(
                 url=result["url"],
-                title=result["title"],
-                content=result.get("description", ""),
+                title=html_to_text(result["title"]),
+                content=html_to_text(result.get("description", "")),
                 publishedDate=_extract_published_date(result.get("age")),
-                thumbnail=result.get("thumbnail", {}).get("src"),
+                thumbnail=thumbnail,
             ),
         )
 

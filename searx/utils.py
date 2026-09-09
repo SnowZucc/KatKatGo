@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Utility functions for the engines"""
 
+import time
 
 import re
 import importlib
@@ -13,7 +14,7 @@ from collections.abc import MutableMapping, Callable
 
 from numbers import Number
 from os.path import splitext, join
-from random import choice, randint
+from random import choice
 from html.parser import HTMLParser
 from html import escape
 from urllib.parse import urljoin, urlparse, parse_qs, urlencode
@@ -25,7 +26,7 @@ from lxml.etree import XPath, XPathError, XPathSyntaxError
 from lxml.etree import ElementBase, _Element  # pyright: ignore[reportPrivateUsage]
 
 from searx import settings
-from searx.data import USER_AGENTS, gsa_useragents_loader
+from searx.data import USER_AGENTS
 from searx.version import VERSION_TAG
 from searx.exceptions import SearxXPathSyntaxException, SearxEngineXPathException
 from searx import logger
@@ -79,14 +80,6 @@ def gen_useragent(os_string: str | None = None) -> str:
         os=os_string or choice(USER_AGENTS['os']),
         version=choice(USER_AGENTS['versions']),
     )
-
-
-def gen_gsa_useragent() -> str:
-    """Return a random "Android Google App" User Agent suitable for Google
-
-    See searx/data/gsa_useragents.txt
-    """
-    return choice(gsa_useragents_loader()) + " GoogleApp/" + str(randint(0, 9))
 
 
 class HTMLTextExtractor(HTMLParser):
@@ -599,7 +592,7 @@ def eval_xpath_getindex(
     return default
 
 
-def get_embeded_stream_url(url: str):
+def get_embedded_stream_url(url: str):
     """
     Converts a standard video URL into its embed format. Supported services include Youtube,
     Facebook, Instagram, TikTok, Dailymotion, and Bilibili.
@@ -742,13 +735,13 @@ def js_obj_str_to_json_str(js_obj_str: str) -> str:
             if in_string == "'":
                 p = p.replace('"', r'\"')
             parts[i] = p
-            # deal with the sequence blackslash then quote
-            # since js_obj_str splits on quote, we detect this case:
-            # * the previous part ends with a black slash
-            # * the current part is a single quote
-            # when detected the blackslash is removed on the previous part
+            # drop a trailing \ that was escaping the quote
+            # leave it if it has been escaped twice as a literal i.e. two \ and ' in a row
             if blackslash_just_before and p[:1] == "'":
-                parts[i - 1] = parts[i - 1][:-1]
+                prev = parts[i - 1]
+                num_backslashes = len(prev) - len(prev.rstrip("\\"))
+                if num_backslashes % 2 == 1:
+                    parts[i - 1] = prev[:-1]
 
         elif in_string is None and p in ('"', "'", "`"):
             # we are not in string but p is string delimiter
@@ -809,3 +802,12 @@ def parse_duration_string(duration_str: str) -> timedelta | None:
         pass
 
     return None
+
+
+# Format the video duration
+def format_duration(duration: str | int) -> str:
+    seconds = int(duration)
+    length = time.gmtime(seconds)
+    if length.tm_hour:
+        return time.strftime("%H:%M:%S", length)
+    return time.strftime("%M:%S", length)
