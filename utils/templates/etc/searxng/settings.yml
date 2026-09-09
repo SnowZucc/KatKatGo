@@ -12,6 +12,9 @@ general:
 
 brand:
   issue_url: https://github.com/SnowZucc/KatKatGo/issues
+  # Hides the "Public instances" link in the footer. Must be an empty string:
+  # the settings schema types this field as `str`, so `false` is rejected.
+  public_instances: ""
   custom:
     links:
       Uptime: https://stats.uptimerobot.com/g9A2LhPxR1
