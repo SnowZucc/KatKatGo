@@ -8,6 +8,7 @@ general:
 #  privacypolicy_url: http://privacy.katkatgo.fr
   donation_url: https://www.patreon.com/KatKatGo/membership
   contact_url: mailto:snowzucc@katkatgo.fr?subject=KatKatGo
+  enable_metrics: false
 
 brand:
   issue_url: https://github.com/SnowZucc/KatKatGo/issues
@@ -25,7 +26,7 @@ search:
 
 server:
   # Is overwritten by ${SEARXNG_SECRET}
-  secret_key: "auuuuuuuuuughfheu53535326463GT43TYG34tfgehng464TF"
+  secret_key: "ultrasecretkey"
   limiter: true
   image_proxy: true
   # public URL of the instance, to ensure correct inbound links. Is overwritten
